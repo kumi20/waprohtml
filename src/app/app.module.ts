@@ -18,6 +18,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PushNotificationService } from './push-notification.service';
 
+import { BnNgIdleService } from 'bn-ng-idle';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -38,7 +40,7 @@ import { PushNotificationService } from './push-notification.service';
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [AppServices, PushNotificationService],
+  providers: [AppServices, PushNotificationService, BnNgIdleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

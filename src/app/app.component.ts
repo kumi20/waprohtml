@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AppServices } from './app-services.service';
 import { SwPush } from '@angular/service-worker';
 import { PushNotificationService } from './push-notification.service';
+import { BnNgIdleService } from 'bn-ng-idle';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +18,15 @@ export class AppComponent implements OnInit{
   readonly VAPID_PUBLIC_KEY = "BLfO5YRiabfAFvqzmwpKos58YGqvxfPaX3LI6xHQLurEDOZZJJema4MJ0Z7xKtNDmi7uI1xNVsRp-h7__akbEyE"
 
   constructor(private translate: TranslateService, private appServices: AppServices, private http: HttpClient,
-    private swPush: SwPush, private pushService: PushNotificationService){
+    private swPush: SwPush, private pushService: PushNotificationService, private bnIdle: BnNgIdleService){
     translate.setDefaultLang('pl'); 
+
+    this.bnIdle.startWatching(60).subscribe((res) => {
+      if(res) {
+          console.log("session expired");
+      }
+    })
+
   }
   
   ngOnInit(){
