@@ -1,3 +1,16 @@
+# testowanie PWA/PUSH
+
+Front:
+npm i http-server -g
+
+http-server "./dist/wapro"
+w " " ścieżka do zbudowanego projektu Angularowego
+
+server:
+cd ./server/
+npm install
+node index.js
+
 # Wapro
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.7.

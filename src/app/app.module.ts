@@ -16,6 +16,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppServices } from './app-services.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { PushNotificationService } from './push-notification.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { environment } from '../environments/environment';
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [AppServices],
+  providers: [AppServices, PushNotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
