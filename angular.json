@@ -28,6 +28,9 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/devextreme/dist/css/dx.common.css",
+              "node_modules/devextreme/dist/css/dx.light.css",
+			  "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "wapro"
+    }
+  },
+  "defaultProject": "wapro",
+  "cli": {
+    "analytics": "dd22a6ac-e54e-46ad-8b59-780782f2d9ee"
+  }
 }
