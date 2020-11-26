@@ -1,0 +1,90 @@
+{
+  "configVersion": 1,
+  "timestamp": 1606382304262,
+  "index": "https://kumi20.github.io/waprohtml/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://kumi20.github.io/waprohtml/favicon.ico",
+        "https://kumi20.github.io/waprohtml/index.html",
+        "https://kumi20.github.io/waprohtml/main.d411f02c5a49b33b8af3.js",
+        "https://kumi20.github.io/waprohtml/manifest.webmanifest",
+        "https://kumi20.github.io/waprohtml/polyfills.a4021de53358bb0fec14.js",
+        "https://kumi20.github.io/waprohtml/runtime.e227d1a0e31cbccbf8ec.js",
+        "https://kumi20.github.io/waprohtml/styles.ee7535aa0f51653c8f3b.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://kumi20.github.io/waprohtml/assets/i18n/en.json",
+        "https://kumi20.github.io/waprohtml/assets/i18n/pl.json",
+        "https://kumi20.github.io/waprohtml/assets/icons/icon-128x128.png",
+        "https://kumi20.github.io/waprohtml/assets/icons/icon-144x144.png",
+        "https://kumi20.github.io/waprohtml/assets/icons/icon-152x152.png",
+        "https://kumi20.github.io/waprohtml/assets/icons/icon-192x192.png",
+        "https://kumi20.github.io/waprohtml/assets/icons/icon-384x384.png",
+        "https://kumi20.github.io/waprohtml/assets/icons/icon-512x512.png",
+        "https://kumi20.github.io/waprohtml/assets/icons/icon-72x72.png",
+        "https://kumi20.github.io/waprohtml/assets/icons/icon-96x96.png",
+        "https://kumi20.github.io/waprohtml/dxicons.ade87a8c195f5857dcf3.woff",
+        "https://kumi20.github.io/waprohtml/dxicons.d601b53ecf670dd37f5c.woff2",
+        "https://kumi20.github.io/waprohtml/dxicons.d8b3a23c53b0d8228c97.ttf"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://kumi20.github.io/waprohtml/assets/i18n/en.json": "9daad2f849abc527cb68c8f569b0334e200b6c6b",
+    "https://kumi20.github.io/waprohtml/assets/i18n/pl.json": "c4350521d6dbcf589def3aad2fb57519f5b5f129",
+    "https://kumi20.github.io/waprohtml/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://kumi20.github.io/waprohtml/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://kumi20.github.io/waprohtml/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://kumi20.github.io/waprohtml/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://kumi20.github.io/waprohtml/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://kumi20.github.io/waprohtml/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://kumi20.github.io/waprohtml/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://kumi20.github.io/waprohtml/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://kumi20.github.io/waprohtml/dxicons.ade87a8c195f5857dcf3.woff": "49e11ed241ec673b87f450268d77179b385e3641",
+    "https://kumi20.github.io/waprohtml/dxicons.d601b53ecf670dd37f5c.woff2": "613d7de00553ccc4eb85aa79c3629f02aee19fd3",
+    "https://kumi20.github.io/waprohtml/dxicons.d8b3a23c53b0d8228c97.ttf": "61f74fc5fde363001046bd023497b759c35a8d55",
+    "https://kumi20.github.io/waprohtml/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://kumi20.github.io/waprohtml/index.html": "e6f114a7f05a09808f4601125dee9b08c0c98129",
+    "https://kumi20.github.io/waprohtml/main.d411f02c5a49b33b8af3.js": "4fc1f190937657fbfc79a22b4fdd2fa218986c2c",
+    "https://kumi20.github.io/waprohtml/manifest.webmanifest": "a7c55c485f2bfd98e54ce3dcfca194a3d4e81a73",
+    "https://kumi20.github.io/waprohtml/polyfills.a4021de53358bb0fec14.js": "b47435a9ef2a4829f2f9dfd35599bde3614981b1",
+    "https://kumi20.github.io/waprohtml/runtime.e227d1a0e31cbccbf8ec.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://kumi20.github.io/waprohtml/styles.ee7535aa0f51653c8f3b.css": "22128117cdf054fd0854538c152a4fc96f4206a8"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
