@@ -18,7 +18,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PushNotificationService } from './push-notification.service';
 
-import { BnNgIdleService } from 'bn-ng-idle';
+import { UserIdleModule } from 'angular-user-idle';
 
 @NgModule({
   declarations: [
@@ -38,9 +38,10 @@ import { BnNgIdleService } from 'bn-ng-idle';
         deps: [HttpClient]
       }
     }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    UserIdleModule.forRoot({idle: 10, timeout: 60, ping: 120})
   ],
-  providers: [AppServices, PushNotificationService, BnNgIdleService],
+  providers: [AppServices, PushNotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

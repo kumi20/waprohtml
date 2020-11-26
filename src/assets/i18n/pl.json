@@ -1,5 +1,8 @@
 {
   "welcome": {
-	"title": "Komponent A dziala"
+	  "title": "Komponent A dziala"
+  },
+  "session":{
+    "end": "Do końca sesji zostało {{timeSession}}"
   }
 }

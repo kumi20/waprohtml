@@ -1,6 +1,10 @@
 {
   "welcome": {
-	"title": "Component A works {{title}}"
+	  "title": "Component A works {{title}}"
+  },
+
+  "session":{
+    "end": "Until the end of the session {{timeSession}}"
   },
 
   "UPCOMING_RENEWALS": "Upcoming Renewals ({{output}} days)"
