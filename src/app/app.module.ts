@@ -14,6 +14,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 import { AppServices } from './app-services.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { AppServices } from './app-services.service';
         useFactory: httpTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AppServices],
   bootstrap: [AppComponent]
