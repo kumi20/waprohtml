@@ -1,0 +1,7 @@
+{
+  "welcome": {
+	"title": "Component A works {{title}}"
+  },
+
+  "UPCOMING_RENEWALS": "Upcoming Renewals ({{output}} days)"
+}
