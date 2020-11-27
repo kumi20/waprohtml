@@ -20,13 +20,15 @@ import { PushNotificationService } from './push-notification.service';
 import { UserIdleModule } from 'angular-user-idle';
 import { LogOnComponent } from './log-on/log-on.component';
 import { HeaderComponent } from './header/header.component';
+import { HotkeyListenerDirective } from './hotkey-listener.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LogOnComponent,
-    HeaderComponent
+    HeaderComponent,
+    HotkeyListenerDirective
   ],
   imports: [
     BrowserModule,
