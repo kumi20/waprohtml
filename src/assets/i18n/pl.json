@@ -3,7 +3,9 @@
     "title": "Zaloguj się do systemu",
     "login": "Login",
     "password": "Hasło",
-    "btn-log": "Zaloguj się"
+    "btn-log": "Zaloguj się",
+    "login-required": "Login jest wymagany",
+    "password-required": "Hasło jest wymagane"
   },
   "welcome": {
 	  "title": "Komponent A dziala"

@@ -8,8 +8,9 @@ import {TranslateService } from '@ngx-translate/core';
 import * as CryptoJS from 'crypto-js';
 
 import { Router } from '@angular/router';
+import notify from 'devextreme/ui/notify';
 
-const salt = "%CxR$%j$i9^2:9_0*2Q!230xs.+";
+const SALT = "%CxR$%j$i9^2:9_0*2Q!230xs.+";
 
 @Injectable({
   providedIn: "root",
@@ -39,12 +40,12 @@ export class EventService {
 
   //szyfruje JSON do AES, aby dane w localstorage czy sessionstorage nie byly przechowywane jawnie
   encryptString = (strignToEncrypt) => {
-    return CryptoJS.AES.encrypt(JSON.stringify(JSON.stringify(strignToEncrypt)), salt).toString();
+    return CryptoJS.AES.encrypt(JSON.stringify(JSON.stringify(strignToEncrypt)), SALT).toString();
   }
 
   //funkcja odszysfrowuje dane AES
   decryptString = (stringToDecrypt) => {
-    stringToDecrypt = CryptoJS.AES.decrypt(stringToDecrypt, salt);
+    stringToDecrypt = CryptoJS.AES.decrypt(stringToDecrypt, SALT);
     if (stringToDecrypt.toString()) {
       let pom = JSON.parse(stringToDecrypt.toString(CryptoJS.enc.Utf8));
       return JSON.parse(stringToDecrypt.toString(CryptoJS.enc.Utf8));
@@ -53,6 +54,12 @@ export class EventService {
 
   public showNotification(type: string, message: string): void {
     let msg = { type: type, message: message };
+    notify({
+        message: message,  
+        type: type,  
+        displayTime: 3000,  
+        closeOnClick: true,  
+        position: {my: 'top right', at: 'top right', of: window,  offset: '0 80px'}});
   }
 
   dataFormatted(params) {

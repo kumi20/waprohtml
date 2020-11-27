@@ -12,7 +12,7 @@
             <input type="text" id="login" placeholder="" class="form-control" formControlName="login"
                 [ngClass]="{ 'input-required': !logForm.controls.login.valid && submitted}" style="height: 48px;">
             <small class="text-danger" *ngIf="submitted && formError.login">
-                {{ formError.login }}
+                {{'logOn.login-required' | translate}}
             </small>
         </div>
         <div class="form-group">
@@ -20,7 +20,7 @@
             <input type="{{mode}}" id="password" placeholder="" class="form-control" formControlName="password"
                 [ngClass]="{ 'input-required': !logForm.controls.password.valid && submitted}" style="height: 48px;">
             <small class="text-danger" *ngIf="submitted && formError.password">
-                {{ formError.password }}
+                {{'logOn.password-required' | translate}}
             </small>
         </div>
 

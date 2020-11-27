@@ -3,7 +3,9 @@
     "title": "Log in to the system",
     "login": "Login",
     "password": "Password",
-    "btn-log": "Sign In"
+    "btn-log": "Sign In",
+    "login-required": "Login is required",
+    "password-required": "Password is required"
   },
 
   "welcome": {

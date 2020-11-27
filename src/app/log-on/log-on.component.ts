@@ -44,6 +44,7 @@ export class LogOnComponent implements OnInit, OnDestroy {
 
   constructor(public formBuilder: FormBuilder, private appService: AppServices, private route: ActivatedRoute, public _route: Router, private event: EventService) {
     this.onCreateForm();
+    console.log(localStorage.getItem('lang'))
   }
 
   ngOnInit() {
