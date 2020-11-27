@@ -1,0 +1,533 @@
+@font-face {
+  font-family: "Lumen";
+  src: url("../fonts/Lumen-Icon-Font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon {
+  display: inline-block;
+  font: normal normal normal 22px Lumen;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-eye:before {
+  content: "\e8f4";
+}
+
+
+.icon-absui-icon--location:before {
+  content: "\eaa8";
+  color: #636677;
+  font-size: 24px;
+  margin-right: 18px;
+}
+
+.absui-icon--shopping-bag:before {
+  content: "\eaa4";
+  color: #636677;
+  font-size: 24px;
+  margin-right: 18px;
+}
+
+.absui-icon--key:before {
+  content: "\e9cc";
+  color: #636677;
+  font-size: 24px;
+  margin-right: 18px;
+}
+
+.absui-icon--location-circle:before {
+  content: "\eaa9";
+  color: #636677;
+  font-size: 24px;
+  margin-right: 18px;
+}
+
+.absui-icon--help-outline:before {
+  content: "\e8fd";
+  color: #636677;
+  font-size: 24px;
+  margin-right: 18px;
+}
+
+.icon-update:before {
+  content: "\e923";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #333333;
+}
+
+.absui-icon--variables:before {
+  content: "\eaa3";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #333333;
+}
+
+.icon-certyfikate:before {
+  content: "\ea4b";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #333333;
+}
+
+.icon-pencile:before {
+  content: "\e932";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #333333;
+}
+
+.icon-refresh:before {
+  content: "\e5d5";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.icon-row:before {
+  color: #d9d9db;
+}
+.icon-border-row {
+  width: 40px;
+  height: 40px;
+  background: #fdfeff;
+  border: 1px solid rgba(218, 222, 225, 0.5);
+  box-sizing: border-box;
+  border-radius: 35px;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 4px;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.icon-border-order {
+  width: 30px;
+  height: 30px;
+  background: #fdfeff;
+  border: 1px solid rgba(218, 222, 225, 0.5);
+  box-sizing: border-box;
+  border-radius: 35px;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 0px;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 12px;
+}
+
+.absui-icon--files::before {
+  content: "\eaa2";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.absui-icon--arrow-downward:before {
+  content: "\e5db";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #ec5f5f;
+  margin-left: -3px;
+}
+
+.icon-border-row:hover {
+  background: #ec5f5f;
+  .icon:before {
+    color: #ffffff !important;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0px 8px 25px rgba(67, 63, 75, 0.08);
+}
+
+.icon-calendar:before {
+  content: "\e91e";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #333333;
+}
+
+a.active .absui-icon--expand-less:before {
+  color: #ec5f5f;
+}
+
+.icon--keyboard-arrow-left:before {
+  content: "\e317";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 7px;
+  //color: #ec5f5f;
+}
+
+.icon--remove-selected::before{
+  content: "\eaa3";
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.icon--keyboard-arrow-right:before {
+  content: "\e318";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #ec5f5f;
+}
+
+.icon-search:hover::before{
+  background-color: #e6e6e6;
+}
+.icon-search:before {
+  content: "\e8b6";
+  font-style: normal;
+  padding-top: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  text-align: center;
+  color:#433F4B;
+  // background-color: #ec5f5f;
+  cursor: pointer;
+  position: relative;
+  top: -35px;
+  left: 165px;
+  display: inline-block;
+  // &:hover{
+  //   background-color:
+  // }
+}
+
+.absui-icon--expand-less:before {
+  content: "\e313";
+  font-size: 21px;
+  line-height: 7px;
+  color: #ffffff;
+}
+
+.absui-icon--arrow-forward:before {
+  content: "\e5c8";
+  font-size: 21px;
+  line-height: 14px;
+}
+.icon-border {
+  width: 40px;
+  height: 40px;
+  background: #fdfeff;
+  border: 1px solid rgba(218, 222, 225, 0.5);
+  box-sizing: border-box;
+  border-radius: 35px;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 4px;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.icon-header {
+  .fa:before {
+    color: #ec5f5f;
+  }
+  .icon:before {
+    color: #ec5f5f;
+  }
+}
+.icon-header.dx-state-disabled {
+  background-color: #dfe1e3 !important;
+  opacity: 1 !important;
+  color: #ffffff !important;
+  .icon:before {
+    color: #ffffff;
+  }
+  .fa:before {
+    color: #ffffff;
+  }
+}
+
+.dx-state-disabled {
+  cursor: pointer;
+  background: rgba(218, 222, 225, 0.5);
+  border: 1px solid rgba(218, 222, 225, 0.5);
+  box-sizing: border-box;
+}
+
+.icon-plus:before {
+  content: "\ea1c";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #333333;
+}
+
+.icon-eye-slash:before {
+  content: "\e8f5";
+}
+
+.keyboard-arrow-left:before {
+  content: "\e317";
+  font-size: 21px;
+  line-height: 14px;
+  text-align: center;
+  font-weight: 400;
+  list-style: normal;
+  color: #1b1a1e;
+  width: 30px;
+  height: 30px;
+  background: #fdfeff;
+  border: 1px solid rgba(218, 222, 225, 0.5);
+  box-sizing: border-box;
+  border-radius: 35px;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.absui-icon--delete:before {
+  content: "\e872";
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.shopping-cart:before {
+  content: "\e8cc";
+  color: #1b1a1e !important;
+  font-weight: 400;
+  font-style: normal;
+  position: relative;
+  font-size: 21px;
+  line-height: 17px;
+  
+  position: relative;
+  color: #bfc4c8;
+}
+
+.absui-icon--is-greate:before {
+  content: "\e318";
+  font-size: 21px;
+  line-height: 14px;
+  text-align: center;
+  font-weight: 400;
+  list-style: normal;
+  color: #1b1a1e;
+  width: 30px;
+  height: 30px;
+  background: #fdfeff;
+  border: 1px solid rgba(218, 222, 225, 0.5);
+  box-sizing: border-box;
+  border-radius: 35px;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  &:hover {
+    color: red !important;
+    //border-bottom: 2px solid #b62428;
+  }
+}
+
+.absui-icon--list-view:before {
+  content: "\eaaa";
+  font-size: 21px;
+}
+
+.absui-icon--select-none:before {
+  content: "\eaa5";
+  font-size: 21px;
+}
+
+.absui-icon--expand-more:before {
+  content: "\e313";
+  color: #bfc4c8;
+  cursor: pointer;
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.icon-history:before {
+  content: "\eaa1";
+  font-size: 21px;
+  line-height: 14px;
+  cursor: pointer;
+}
+
+.icon-sign-out:before {
+  content: "\e8ac";
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.absui-icon--phone:before {
+  content: "\e0cd";
+  font-size: 24px;
+  line-height: 14px;
+  color: #ec5f5f;
+  position: relative;
+  top: 81px;
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.icon-download:before {
+  content: "\e884";
+  margin-right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.icon-upload:before {
+  content: "\e2c6";
+}
+
+.icon-info:before {
+  content: "\e88f";
+}
+
+.icon-lock:before {
+  content: "\e96c";
+  cursor: pointer;
+  position: relative;
+  top: -4px;
+  font-size: 21px;
+}
+
+.icon-unlock:before {
+  content: "\e97b";
+  position: relative;
+  top: -4px;
+  cursor: pointer;
+  font-size: 21px;
+}
+
+.icon-plus-square-o:before {
+  content: "\e145";
+  border: solid 1px;
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.icon-user-add:before {
+  content: "\e9e1";
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.icon-user-remove:before {
+  content: "\e9e6";
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.icon--settings:before {
+  content: "\e8b8";
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.fa-clone {
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.icon-line-out-mail:before {
+  content: "\ea80";
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.icon-details:before {
+  content: "\e98e";
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.icon-save:before {
+  content: "\e161";
+  font-size: 21px;
+  line-height: 14px;
+}
+
+//zamowienia
+.absui-icon--person-out:before {
+  content: "\eaa6";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #636677;
+}
+
+.absui-icon--person-ok:before {
+  content: "\eaa7";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #636677;
+}
+
+.absui-icon--partly-check-circle:before {
+  content: "\eaa0";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #636677;
+}
+
+.absui-icon--check-circle:before {
+  content: "\e86c";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #636677;
+}
+
+.absui-icon--remove-circle-outline:before {
+  content: "\e15d";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #EC5F5F;
+}
+
+.absui-icon--error-money-outline:before {
+  content: "\eaab";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #EC5F5F;
+}
+
+.absui-icon--more-horiz:before{
+  content: "\e5d3";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #EC5F5F;
+}
+
+.icon--keyboard-arrow-right-mobile:before {
+  content: "\e318";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 14px;
+  color: #1B1A1E;
+}
+
+.absui-icon--expand-more-mobile:before {
+  content: "\e313";
+  color: #EC5F5F;
+  cursor: pointer;
+  font-size: 21px;
+  line-height: 14px;
+}

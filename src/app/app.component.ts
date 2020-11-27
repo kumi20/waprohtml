@@ -48,10 +48,7 @@ export class AppComponent implements OnInit{
         .catch(console.error)
     }
   }
-  useLanguage = (language: string) =>{
-    localStorage.setItem('lang', language);
-    this.translate.use(language)
-  }
+  
 
   sendNotification(){
     this.pushService.sendNotification().subscribe()

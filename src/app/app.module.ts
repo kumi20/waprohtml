@@ -12,17 +12,21 @@ import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
 import { AppServices } from './app-services.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PushNotificationService } from './push-notification.service';
 
 import { UserIdleModule } from 'angular-user-idle';
+import { LogOnComponent } from './log-on/log-on.component';
+import { HeaderComponent } from './header/header.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LogOnComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

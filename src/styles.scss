@@ -1,1 +1,126 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/lemena-icon.scss";
+@import "./assets/scss/accordion.scss";
+@import "./assets/scss/grid.scss";
+@import "./assets/scss/dxInput.scss";
+
+@import "./assets/scss/mobile.scss";
+
+@font-face {
+    font-family: "GeomanistRegular";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./assets/fonts/GEOMANIST-REGULAR.OTF") format("opentype");
+  }
+  
+  @font-face {
+    font-family: "GeomanistBook";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./assets/fonts/GEOMANIST-BOOK.OTF") format("opentype");
+  }
+  
+  @font-face {
+    font-family: "GeomanistRegular";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./assets/fonts/GEOMANIST-REGULAR.OTF") format("opentype");
+  }
+  
+  @font-face {
+    font-family: "GeomanistMedium";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./assets/fonts/GEOMANIST-MEDIUM.OTF") format("opentype");
+  }
+  
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./assets/fonts/Inter-VariableFont.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "InterBold";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./assets/fonts/Inter-Bold.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: "InterMedium";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./assets/fonts/Inter-Medium.woff") format("woff");
+  }
+
+  h2 {
+    font-family: GeomanistBook;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 22px;
+    margin-bottom: 9px;
+    color: #1b1a1e;
+    strong {
+      color: #d20a11;
+      font-style: normal;
+      font-weight: normal;
+    }
+  }
+  
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: normal !important;
+    font-family: InterBold;
+  }
+  
+  h1 {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 60px;
+    line-height: 72px;
+    color: #433f4b;
+    strong {
+      font-family: "InterBold";
+      font-weight: normal;
+    }
+  }
+
+
+  .h1-logo {
+    font-family: GeomanistBook;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 60px;
+    line-height: 72px;
+    color: #433f4b;
+    strong {
+      color: #d20a11;
+      font-style: normal;
+      font-weight: normal;font-family: "InterBold";
+      font-weight: normal;
+    }
+  }
+
+  label {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #636677;
+    margin-left: 20px;
+    strong {
+      color: #ec5f5f;
+    }
+  }
+
+  .text-danger{
+    margin-left:22px;
+  }

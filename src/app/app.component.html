@@ -1,4 +1,4 @@
-<p [translate]="'session.end'" [translateParams]="{timeSession: timeSession}"></p>
+<!-- <p [translate]="'session.end'" [translateParams]="{timeSession: timeSession}"></p>
 
 <p>{{ 'welcome.title' | translate }}</p>
 
@@ -13,4 +13,10 @@
 
   <dx-button text="jjjjjj"></dx-button>
  
- <dx-button text="Wyślij Powiadomienie" (onClick)="sendNotification()"></dx-button>
+ <dx-button text="Wyślij Powiadomienie" (onClick)="sendNotification()"></dx-button> -->
+
+<app-header></app-header>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

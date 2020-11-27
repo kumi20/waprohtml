@@ -1,0 +1,104 @@
+$hedaerGrid: #031f2c;
+
+.dx-datagrid-rowsview .dx-row.dx-group-row:not(.dx-row-focused) {
+  color: #111111 !important;
+}
+
+.dx-datagrid-rowsview .dx-selection.dx-row:not(.dx-row-focused) > td,
+.dx-datagrid-rowsview .dx-selection.dx-row:not(.dx-row-focused) > tr > td,
+.dx-datagrid-rowsview .dx-selection.dx-row:not(.dx-row-focused):hover > td,
+.dx-datagrid-rowsview .dx-selection.dx-row:not(.dx-row-focused):hover > tr > td {
+  //background-color: #fdefef;
+  background-color: #ffffff!important;
+  color:#1B1A1E;
+}
+
+.dx-datagrid .dx-datagrid-rowsview .dx-row-focused.dx-data-row:not(.dx-edit-row) > td:not(.dx-focused) {
+  background-color: green;
+}
+
+.dx-header-row > td > .dx-datagrid-text-content{
+  color: #636677;
+}
+
+.dx-datagrid-adaptive-more:before{
+  content: "\e5d4";
+  font-family: 'Lumen';
+  font-size: 21px;
+  line-height: 14px;
+}
+
+.dx-datagrid-headers {
+  color: #636677 !important;
+  font-family: Inter !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 12px !important;
+  line-height: 15px !important;
+  background-color: #ffffff !important;
+  border: none;
+  padding: 6px 0 6px 0;
+}
+.dx-datagrid-rowsview .dx-row {
+  font-weight: 500;
+  border: none;
+  padding-top: 40px;
+  margin-top: 130px;
+}
+.dx-datagrid-headers .dx-price-cell-wapro-erp {
+  background-color: $hedaerGrid !important;
+}
+
+.dx-datagrid-headers .dx-datagrid-table .dx-row > td {
+  border-bottom: none !important;
+}
+
+.dx-checkbox-checked .dx-checkbox-icon {
+  font: 16px/16px DXIcons;
+  color: #EC5F5F;
+  text-align: center;
+}
+
+.groupCellTemplate {
+  font-weight: normal !important;
+  padding-top: 50px;
+  margin-bottom: -10px;
+  box-sizing: border-box;
+}
+
+.row-disable-wapro-erp {
+  color: #d3d3d3 !important;
+}
+
+.dx-datagrid-content .dx-datagrid-table .dx-row > td, .dx-datagrid-content .dx-datagrid-table .dx-row > tr > td {
+  vertical-align: middle;
+}
+
+// .dx-datagrid-checkbox-size {
+//   line-height: 1em;
+//   margin-left: -50px;
+// }
+
+.dx-command-select {  
+  text-align: left!important;
+  width: 41px!important;  
+  min-width: 41px!important; ;  
+}  
+
+td p{
+  margin-top: 15px;
+}
+
+.dx-datagrid-rowsview .dx-row.dx-group-row:not(.dx-row-focused) {
+  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(67, 63, 75, 0.1);
+}
+
+.dx-row.dx-state-hover{  
+  background: #f9f9f9!important;  
+  .icon:before{
+    color: #333333;
+  }
+}  

@@ -1,0 +1,60 @@
+.dx-accordion-item{
+    background: #FFFFFF;
+    box-shadow: 0px 5px 15px rgba(67, 63, 75, 0.1);
+    border-radius: 15px;
+    padding: 13px 30px;
+    margin-bottom: 20px;
+  }
+
+  .dx-accordion{
+    background: transparent!important;
+  }
+
+  .dx-accordion-item-opened {
+     border: none!important;
+  }
+  
+  .dx-accordion-item-title{
+    min-height: 146px;
+    height:auto; 
+  }
+  
+  .dx-accordion {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .dx-accordion-item:last-child {
+    border: none;
+  }
+  .dx-accordion-item.dx-state-active:not(.dx-accordion-item-opened) .dx-icon {
+    color: #333;
+  }
+  .dx-accordion-item.dx-state-active:not(.dx-accordion-item-opened) > .dx-accordion-item-title {
+    color: #333;
+    background:none;
+  }
+  .dx-accordion-item.dx-state-hover > .dx-accordion-item-title {
+    background:none;
+  }
+  
+  .dx-state-focused.dx-accordion-item {
+    border: none;
+  }
+  
+  .dx-accordion-item-title:before {
+    content: '';
+  }
+
+  .dx-accordion-item-opened > .dx-accordion-item-title:before {
+    content: "";
+  }
+
+
+  .dx-list-item-content{
+    background: #FFFFFF;
+    box-shadow: 0px 5px 15px rgba(67, 63, 75, 0.1);
+    border-radius: 0px;
+    padding: 13px 30px;
+    margin-bottom: 20px;
+  }

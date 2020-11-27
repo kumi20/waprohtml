@@ -1,0 +1,404 @@
+.dx-texteditor-input {
+  margin: 0;
+  padding: 7px 9px 8px;
+  padding-left: 16px;
+  color: #1b1a1e;
+  font-size: 1em;
+  height: 40px;
+}
+
+.dx-texteditor-container {
+  overflow: inherit;
+
+  //box-shadow: 0px 8px 25px rgba(67, 63, 75, 0.08);
+}
+
+.box-shadow-none {
+  .dx-texteditor-input-container {
+    box-shadow: none !important;
+  }
+}
+
+.dx-texteditor.dx-state-readonly {
+  border-style: solid;
+  background: rgba(218, 222, 225, 0.5) !important;
+}
+
+.dx-button.dx-button-normal.dx-button-mode-contained.dx-widget.dx-button-has-text.dx-dialog-button {
+  box-sizing: border-box;
+  box-shadow: 0px 8px 25px rgba(67, 63, 75, 0.08) !important;
+  border-radius: 30px !important;
+  background: #fdfeff !important;
+  border: 1px solid rgba(218, 222, 225, 0.5) !important;
+  color: #1b1a1e !important;
+  &:hover {
+    background-color: #f4f5f7;
+    color: #1b1a1e;
+  }
+}
+
+.dx-filter.dx-texteditor.dx-editor-outlined {
+  width: 430px;
+  height: 40px;
+  display: inline-block;
+  margin-right: -30px;
+  margin-bottom: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.dx-placeholder {
+  padding-left: 16px;
+}
+
+.dx-placeholder:before {
+  padding: 5px 1px;
+}
+
+.dx-texteditor.dx-editor-outlined {
+  background: #fdfeff;
+  box-shadow: 0px 8px 25px rgba(67, 63, 75, 0.08);
+  border-radius: 30px;
+}
+
+.dx-filtr-input.dx-texteditor.dx-editor-outlined {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  width: 200px;
+  height: 40px;
+  input{
+    color: #636677;
+  }
+}
+
+.dx-clear-button-area {
+  margin-left: -60px;
+}
+
+.dx-icon-clear {
+  font: 21px/21px Lumen;
+}
+
+.dx-icon-clear::before {
+  content: "\e5cd";
+  font-size: 21px;
+  line-height: 16px;
+  color: #433F4B !important;
+}
+
+.dx-dropdowneditor-icon {
+  border: 1px solid transparent;
+  color:#636677;
+  font-size: 22px;
+  line-height: 14px;
+  font-family: Lumen;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 30px;
+  margin-top: 3px;
+  position: relative;
+  right: 35px;
+}
+
+
+.dx-numberbox-spin-down-icon {
+  font: 19px/19px Lumen;
+  color: #bfc4c8;
+}
+
+.dx-numberbox-spin-up-icon {
+  font: 19px/19px Lumen;
+  color: #bfc4c8;
+}
+
+.dx-numberbox-spin-up-icon:before {
+  content: "\e316";
+}
+
+.dx-numberbox-spin-down-icon:before {
+  content: "\e313";
+}
+
+.dx-dropdowneditor-icon:before {
+  content: "\e313";
+  position: absolute;
+  display: block;
+  width: 18px;
+  top: 50%;
+  margin-top: -6px;
+  left: 15px;
+  margin-left: -12px;
+}
+
+.dx-selectbox-popup-wrapper .dx-overlay-content {
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  width: 85% !important;
+  min-width: 85% !important;
+}
+
+.text-box {
+  width: 100%;
+  max-width: 350px;
+  box-shadow: none !important;
+}
+
+.input-gus {
+  width: calc(100% - 195px);
+  display: inline-block;
+}
+
+.dx-numberbox-spin-container {
+  position: relative;
+  right: 2px;
+  height: 40px;
+}
+
+.dx-numberbox-spin-up-icon {
+  width: 30px;
+}
+
+.dx-state-hover.dx-numberbox-spin-button,
+.dx-state-hover.dx-numberbox-spin-button .dx-numberbox-spin-up-icon {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.dx-state-active.dx-numberbox-spin-button,
+.dx-state-active.dx-numberbox-spin-button .dx-numberbox-spin-up-icon {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+// .dx-state-hover {
+//   border: 1px solid #DADEE1!important;
+// }
+
+.dx-state-hover.dx-numberbox-spin-button .dx-numberbox-spin-down-icon,
+.dx-state-hover.dx-numberbox-spin-button {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.dx-state-active.dx-numberbox-spin-button .dx-numberbox-spin-down-icon,
+.dx-state-active.dx-numberbox-spin-button {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.dx-texteditor-input {
+  height: 100% !important;
+}
+
+.dx-state-disabled {
+  opacity: 1 !important;
+  background: rgba(218, 222, 225, 0.5) !important;
+  .dx-textbox {
+    color: #636677 !important;
+  }
+}
+
+.dx-state-focused {
+  border-color: #bfc4c8 !important;
+}
+
+.dx-datebox-calendar .dx-dropdowneditor-icon {
+  font: 18px/18px Lumen;
+  width: 35px;
+  height: 35px;
+  left: -6px !important;
+  top: -1px !important;
+  text-align: center !important;
+  border-radius: 30px !important;
+  &:hover {
+    color: #333 !important;
+  }
+}
+
+.dx-datebox-calendar .dx-dropdowneditor-icon:before {
+  content: "\e91e";
+  position: absolute;
+  display: block;
+  width: 18px;
+  top: 50%;
+  margin-top: -9px;
+  left: 50%;
+  margin-left: -9px;
+  &:hover {
+    color: #333 !important;
+  }
+}
+
+.dx-placeholder {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  color: #1b1a1e;
+}
+
+.dx-widget .dx-calendar-navigator .dx-button-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 14px;
+  color: #636677;
+}
+
+.dx-icon-chevronleft:before {
+  color: #ec5f5f;
+}
+.dx-calendar-navigator .dx-button {
+  height: 100%;
+  border-radius: 0;
+  display: table-cell;
+  background: #fdfeff;
+  border: none;
+}
+
+.dx-calendar-navigator-previous-view {
+  background: #fdfeff;
+  width: 30px !important;
+  height: 30px !important;
+  border: 1px solid rgba(218, 222, 225, 0.5) !important;
+  box-sizing: border-box !important;
+  border-radius: 35px !important;
+  .dx-icon-chevronright:before {
+    color: #ec5f5f;
+  }
+  &:hover {
+    background-color: #bfc4c8 !important;
+  }
+}
+
+.dx-calendar-navigator-next-view {
+  background: #fdfeff;
+  width: 30px !important;
+  height: 30px !important;
+  border: 1px solid rgba(218, 222, 225, 0.5) !important;
+  box-sizing: border-box !important;
+  border-radius: 35px !important;
+  .dx-icon-chevronright:before {
+    color: #ec5f5f;
+  }
+  &:hover {
+    background-color: #bfc4c8 !important;
+  }
+}
+
+.dx-state-hover {
+  .dx-icon-chevronright:before {
+    color: #1b1a1e !important;
+  }
+
+  .dx-icon-chevronleft:before {
+    color: #1b1a1e !important;
+  }
+}
+
+.dx-overlay-content {
+  background: #fdfeff;
+  /* Shadow Interface */
+
+  box-shadow: 0px 5px 15px rgba(67, 63, 75, 0.1) !important;
+  border-bottom-right-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+}
+
+td.dx-calendar-cell {
+  text-align: center;
+  padding: 1px 8px 2px;
+  color: #333;
+  font-size: 14px !important;
+  border: 1px double transparent;
+  min-width: 30px !important;
+  border-radius: 30px !important;
+  width: 30px !important;
+}
+
+.dx-texteditor-input-container {
+  box-sizing: border-box !important;
+  padding-top: 3px !important;
+}
+
+.dx-list-item-content {
+  height: 40px;
+  padding-top: 13px !important;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  color: #1b1a1e;
+}
+.dx-list-item-content.dx-state-hover {
+  background: #bfc4c8;
+}
+
+.dx-calendar-cell.dx-state-hover {
+  background: #bfc4c8;
+  -webkit-box-shadow: inset 0 -1px 0 1000px rgba(0, 0, 0, 0.04);
+  box-shadow: inset 0 -1px 0 1000px rgba(0, 0, 0, 0.04);
+  color: #333;
+}
+
+.dx-calendar-cell.dx-calendar-empty-cell {
+  cursor: default;
+  background: #dfe1e3 !important;
+  color: #ffffff !important;
+}
+
+.dx-calendar-cell.dx-calendar-selected-date,
+.dx-calendar-cell.dx-calendar-selected-date.dx-calendar-today {
+  color: #fff;
+  -webkit-box-shadow: inset 0 0 0 1000px #ec5f5f !important;
+  box-shadow: inset 0 0 0 1000px #ec5f5f !important;
+  font-weight: 400;
+  border-radius: 45px !important;
+  min-width: 30px !important;
+  max-width: 30px !important;
+  height: 30px !important;
+}
+
+.order-box {
+  padding-left: 59px;
+}
+
+.dx-checkbox-checked.dx-state-hover .dx-checkbox-icon {
+  border: 2px solid #bfc4c8 !important;
+}
+
+.dx-checkbox.dx-state-focused .dx-checkbox-icon {
+  border: 2px solid #bfc4c8 !important;
+}
+
+.dx-checkbox .dx-checkbox-icon {
+  border: 2px solid #bfc4c8 !important;
+}
+
+@media only screen and (min-width: 321px) and (max-device-width: 812px) {
+  .order-box {
+    padding-left: 15px !important;
+  }
+}
+
+.dx-filtr-input input {
+  padding-left: 11px;
+  font-family: "Inter";
+}
+
+.dx-widget input {
+  font-family: "Inter";
+}
+
+.no-box-shadow,
+.no-box-shadow input {
+  box-shadow: none !important;
+}
+
+.dx-widget input {
+  margin-top: -3px;
+}

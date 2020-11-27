@@ -1,4 +1,10 @@
 {
+  "logOn":{
+    "title": "Zaloguj się do systemu",
+    "login": "Login",
+    "password": "Hasło",
+    "btn-log": "Zaloguj się"
+  },
   "welcome": {
 	  "title": "Komponent A dziala"
   },

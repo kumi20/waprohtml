@@ -1,0 +1,23 @@
+header {
+    height: 60px;
+    width: 100%;
+    background: rgba(253, 254, 255, 0.85);
+    box-shadow: 0px 10px 30px rgba(67, 63, 75, 0.13);
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    margin-bottom: 55px;
+  }
+  
+.logo-dashboard-wapro-erp {
+    position: fixed;
+    top: 20px;
+}
+
+h5{
+  display: inline;
+  position: relative;
+  top: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+}

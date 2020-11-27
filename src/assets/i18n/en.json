@@ -1,4 +1,11 @@
 {
+  "logOn":{
+    "title": "Log in to the system",
+    "login": "Login",
+    "password": "Password",
+    "btn-log": "Sign In"
+  },
+
   "welcome": {
 	  "title": "Component A works {{title}}"
   },

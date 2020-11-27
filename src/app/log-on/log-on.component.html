@@ -1,0 +1,32 @@
+<div class="panel-log-wapro-erp">
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-12">
+            <h1 class="h1-logo">WAPRO <strong>Mag</strong></h1>
+            <p class="p-logOn-header-wapro-erp">{{'logOn.title' | translate}}</p>
+        </div>
+    </div>
+
+    <form [formGroup]="logForm" (ngSubmit)="onSubmitForm(logForm.value)" class="form-log">
+        <div class="form-group">
+            <label for="login">{{'logOn.login' | translate}} <strong>*</strong></label>
+            <input type="text" id="login" placeholder="" class="form-control" formControlName="login"
+                [ngClass]="{ 'input-required': !logForm.controls.login.valid && submitted}" style="height: 48px;">
+            <small class="text-danger" *ngIf="submitted && formError.login">
+                {{ formError.login }}
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="password">{{'logOn.password' | translate}} <strong>*</strong></label>
+            <input type="{{mode}}" id="password" placeholder="" class="form-control" formControlName="password"
+                [ngClass]="{ 'input-required': !logForm.controls.password.valid && submitted}" style="height: 48px;">
+            <small class="text-danger" *ngIf="submitted && formError.password">
+                {{ formError.password }}
+            </small>
+        </div>
+
+        <dx-button mode="submit" class="btn-log-wapro-erp" text="{{'logOn.btn-log' | translate}}" [useSubmitBehavior]="true" [height]='48'>
+        </dx-button>
+    </form>
+
+    <img src="../../assets/img/graphics_1.png" alt="wapro-erp" class="graphics_1">
+</div>
