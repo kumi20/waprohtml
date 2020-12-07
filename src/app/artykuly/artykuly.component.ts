@@ -63,7 +63,7 @@ export class ArtykulyComponent implements OnInit {
 
   runNestMessage(operation: Operation){
     console.log('globals before message', this.nestParameters)
-    let message: string = ''
+    let message: string | any = ''
     operation.operationParameters.forEach(parameter=>{
       if(parameter.name === 'tresc'){
         message = parameter.value
