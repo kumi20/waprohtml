@@ -24,6 +24,7 @@ import { HeaderComponent } from './header/header.component';
 import { HotkeyListenerDirective } from './hotkey-listener.directive';
 import { ArtykulyComponent } from './artykuly/artykuly.component';
 import { DxTextAreaModule } from 'devextreme-angular';
+import { NestComponent } from './nest/nest.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DxTextAreaModule } from 'devextreme-angular';
     LogOnComponent,
     HeaderComponent,
     HotkeyListenerDirective,
-    ArtykulyComponent
+    ArtykulyComponent,
+    NestComponent
   ],
   imports: [
     BrowserModule,
