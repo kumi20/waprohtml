@@ -16,19 +16,22 @@ import { AppServices } from './app-services.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PushNotificationService } from './push-notification.service';
+import { NestService } from './nest-service.service'
 
 import { UserIdleModule } from 'angular-user-idle';
 import { LogOnComponent } from './log-on/log-on.component';
 import { HeaderComponent } from './header/header.component';
 import { HotkeyListenerDirective } from './hotkey-listener.directive';
-
+import { ArtykulyComponent } from './artykuly/artykuly.component';
+import { DxTextAreaModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogOnComponent,
     HeaderComponent,
-    HotkeyListenerDirective
+    HotkeyListenerDirective,
+    ArtykulyComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { HotkeyListenerDirective } from './hotkey-listener.directive';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    DxTextAreaModule,
     TranslateModule.forRoot({
       loader:{
         provide: TranslateLoader,
@@ -47,7 +51,7 @@ import { HotkeyListenerDirective } from './hotkey-listener.directive';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     UserIdleModule.forRoot({idle: 10, timeout: 60, ping: 120})
   ],
-  providers: [AppServices, PushNotificationService],
+  providers: [AppServices, PushNotificationService, NestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
