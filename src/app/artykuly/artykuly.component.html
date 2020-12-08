@@ -1,3 +1,67 @@
 <dx-button icon="plus" (onClick)="addArticle()"></dx-button>
 
-<dx-text-area [value]="getString()" height="350"> </dx-text-area>
+<div class="form" *ngIf="formVisible">
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <div class="dx-field-label">Default mode</div>
+            <div class="dx-field-value">
+                <dx-text-box value="John Smith"></dx-text-box>
+            </div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">With placeholder</div>
+            <div class="dx-field-value">
+                <dx-text-box placeholder="Enter full name here..."></dx-text-box>
+            </div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">With clear button</div>
+            <div class="dx-field-value">
+                <dx-text-box value="John Smith" [showClearButton]="true">
+                </dx-text-box>
+            </div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Password mode</div>
+            <div class="dx-field-value">
+                <dx-text-box
+                    mode="password"
+                    placeholder="Enter password"
+                    [showClearButton]="true"
+                    value="f5lzKs0T"
+                ></dx-text-box>
+            </div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Email (read only)</div>
+            <div class="dx-field-value">
+                <dx-text-box
+                    [readOnly]="true"
+                    [hoverStateEnabled]="false"
+                    [(value)]="emailValue"
+                ></dx-text-box>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-right">
+            <dx-button icon="save" text="Submit"></dx-button>
+        </div>
+    </div>
+</div>
+
+<dx-popup
+    [width]="300"
+    [height]="250"
+    [showTitle]="true"
+    title="Komunikat"
+    [dragEnabled]="false"
+    [closeOnOutsideClick]="true"
+    [(visible)]="popupVisible"
+    (onHiding)="closePopup($event)">
+    <div *dxTemplate="let data of 'content'">
+        <p>
+            {{message}}
+        </p>
+    </div>
+</dx-popup>

@@ -9,6 +9,8 @@ import { NestComponent } from '../nest/nest.component';
 })
 export class ArtykulyComponent extends NestComponent implements OnInit {
 
+  formVisible: boolean = false;
+
   constructor(public nestService: NestService) {
     super(nestService)
   }
@@ -21,14 +23,15 @@ export class ArtykulyComponent extends NestComponent implements OnInit {
     return JSON.stringify(this.nests)
   }
 
-  addArticle(){
-    this.nests.forEach(nest=>{
+  async addArticle(){
+    for(const nest of this.nests){
       // sprawdzamy gniazda na dodanie artykulu && przed zaladowaniem formularza dodawania artykulu
       if(nest.code === 'XGALYD' && nest.time === 'przed'){ 
         this.getNestGlobals(nest);
-        this.runNest(nest);
+        await this.runNest(nest);
       }
-    })
+    }
+    this.formVisible = true;
   }
 
 }

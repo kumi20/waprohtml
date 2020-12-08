@@ -1,29 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { Nest, NestService, Operation } from '../nest-service.service';
 
 @Component({
   selector: 'app-nest',
-  templateUrl: './nest.component.html',
-  styleUrls: ['./nest.component.scss']
+  template: '',
 })
 export class NestComponent implements OnInit {
 
+  @Input() popupVisible: boolean = false;
+
+  operationFinished: Promise<boolean>;
   nestParameters: Object = {}
   nests: Nest[] = [];
-  
+  message: string = '';
+  subject = new BehaviorSubject(false);
+  subscription: Subscription;
+
   constructor(protected nestService: NestService) { }
 
   ngOnInit(): void {
   }
 
   getNests(){
+    // przy pobraniu można podzielić gniazda aby nie filtrować ich ponownie 
+    //przy wykonywaniu jakiejs operacji jak na poczatku addArticle
     this.nestService.get().subscribe((nests: Nest[])=>{
       this.nests = nests;
-      // przy pobraniu można podzielić gniazda aby nie filtrować ich ponownie 
-      //przy wykonywaniu jakiejs operacji jak na poczatku addArticle
     })
   }
-
   
   getNestGlobals(nest: Nest){
     nest.globalParameters.forEach(parameter=>{
@@ -32,18 +37,22 @@ export class NestComponent implements OnInit {
   }
 
   runNest(nest: Nest){
-    nest.operations.forEach((operation: Operation)=>{
-      switch(operation.type){
-        case 'procedura':
-          this.runNestProcedure(operation);
-          break;
-        case 'komunikat':
-          this.runNestMessage(operation);
-          break;
-        default:
-          console.log('undefined operation');
-          break;
+    return new Promise<boolean>(async resolve=>{
+      for(const operation of nest.operations){
+        switch(operation.type){
+          case 'procedura':
+            await this.runNestProcedure(operation);
+            break;
+          case 'komunikat':
+            await this.runNestMessage(operation);
+            console.log("after close")
+            break;
+          default:
+            console.log('undefined operation');
+            break;
+        }
       }
+      resolve(true);
     })
   }
 
@@ -59,7 +68,17 @@ export class NestComponent implements OnInit {
         message = message.replaceAll(parameter.name,val);
       }
     })
-    console.log(message);
+    this.message = message;
+    this.popupVisible = true;
+    return new Promise<boolean>(resolve=>{
+      this.subscription = this.subject.subscribe((data:any) => {
+        if(data){
+          this.subject.next(false)
+          this.subscription.unsubscribe()
+          resolve(data);
+        }
+      })
+    })
   }
 
   runNestProcedure(operation: Operation){
@@ -82,19 +101,26 @@ export class NestComponent implements OnInit {
         outputs.push(obj)
       }
     })
-    console.log('inputs to procedure, ',inputs)
-    let response = this.nestService.nestSQLProcedure(sqlProcedure,inputs,outputs)
-    
-    this.updateGlobals(response);
-    console.log('globals after SQLPRocedure', this.nestParameters)
+
+    return new Promise<any>(async (resolve)=>{
+      console.log('inputs to procedure, ',inputs)
+      let response = await this.nestService.nestSQLProcedure(sqlProcedure,inputs,outputs)
+      
+      this.updateGlobals(response);
+      console.log('globals after SQLPRocedure', this.nestParameters)
+      resolve(true)
+    })
   }
 
   updateGlobals(outputs: any[]){
-    outputs.forEach(res=>{
-      for(let p in res){
-        this.nestParameters[p] = res[p]
+    for(const res of outputs){
+      for(const p in res){
+        this.nestParameters[p] =res[p]
       }
-    })
+    }
   }
   
+  closePopup($event){
+    this.subject.next(true)
+  }
 }

@@ -324,19 +324,21 @@ export class NestService {
   }
 
   nestSQLProcedure(name: string, inputs: any[], outputs: any[]){
-    let apiUrl = `http://localhost:3000/${name}`
-    // post do wykonania procki
-    // this.http.post(apiUrl,inputs).subscribe(res=>{
-    //   res.forEach(param=>{
-    //     // jezeli jest output o danym kluczu to podmieniamy
-    //     outputs[param] = param
-    //   })
-    // })
-    outputs.forEach((param: {})=>{
-      for(let p in param){
-        param[p] = 'zwroconyWynik'
-      }
+    return new Promise<any>(resolve=>{
+      let apiUrl = `http://localhost:3000/${name}`
+      // post do wykonania procki
+      // this.http.post(apiUrl,inputs).subscribe(res=>{
+      //   res.forEach(param=>{
+      //     // jezeli jest output o danym kluczu to podmieniamy
+      //     outputs[param] = param
+      //   })
+      // })
+      outputs.forEach((param: {})=>{
+        for(let p in param){
+          param[p] = 'zwroconyWynik'
+        }
+      })
+      resolve(outputs)
     })
-    return outputs;
   }
 }

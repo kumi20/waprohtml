@@ -23,7 +23,7 @@ import { LogOnComponent } from './log-on/log-on.component';
 import { HeaderComponent } from './header/header.component';
 import { HotkeyListenerDirective } from './hotkey-listener.directive';
 import { ArtykulyComponent } from './artykuly/artykuly.component';
-import { DxTextAreaModule } from 'devextreme-angular';
+import { DxPopupModule, DxTextAreaModule, DxTextBoxModule } from 'devextreme-angular';
 import { NestComponent } from './nest/nest.component';
 
 @NgModule({
@@ -43,6 +43,8 @@ import { NestComponent } from './nest/nest.component';
     ReactiveFormsModule,
     HttpClientModule,
     DxTextAreaModule,
+    DxPopupModule,
+    DxTextBoxModule,
     TranslateModule.forRoot({
       loader:{
         provide: TranslateLoader,
