@@ -65,3 +65,46 @@
         </p>
     </div>
 </dx-popup>
+
+<dx-popup
+    #questionPopup
+    [width]="300"
+    [height]="250"
+    [showTitle]="true"
+    title="Pytanie"
+    [dragEnabled]="false"
+    [closeOnOutsideClick]="false"
+    [(visible)]="questionPopupVisible">
+    <div *dxTemplate="let data of 'content'">
+        <p>
+            {{questionMessage}}
+        </p>
+        <div>
+            <dx-button text="Tak" (onClick)="closeQuestionPopup(true)"></dx-button>
+            <dx-button text="Nie" (onClick)="closeQuestionPopup(false)"></dx-button>
+        </div>
+    </div>
+</dx-popup>
+
+<dx-popup
+    #questionPopup
+    [width]="500"
+    [height]="450"
+    [showTitle]="true"
+    title="Tabela Dodatkowa"
+    [dragEnabled]="false"
+    [closeOnOutsideClick]="false"
+    [(visible)]="externalTablePopupVisible"
+    (onHiding)="closeExternalTablePopup()">
+    <div *dxTemplate="let data of 'content'">
+        <dx-data-grid 
+            [dataSource]="externalTableData">
+            <dxo-editing 
+            mode="row"
+            [allowUpdating]="externalTableExecRights"
+            [allowDeleting]="externalTableExecRights"
+            [allowAdding]="externalTableExecRights">
+        </dxo-editing>
+        </dx-data-grid>
+    </div>
+</dx-popup>

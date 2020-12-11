@@ -24,14 +24,12 @@ export class ArtykulyComponent extends NestComponent implements OnInit {
   }
 
   async addArticle(){
-    for(const nest of this.nests){
-      // sprawdzamy gniazda na dodanie artykulu && przed zaladowaniem formularza dodawania artykulu
-      if(nest.code === 'XGALYD' && nest.time === 'przed'){ 
-        this.getNestGlobals(nest);
-        await this.runNest(nest);
-      }
-    }
+    const nest = this.findNest('XGALYD','przed')
+
+    this.getNestGlobals(nest);
+    await this.runNest(nest);
+
     this.formVisible = true;
   }
-
+  
 }

@@ -1,3 +1,4 @@
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
@@ -33,7 +34,9 @@ export interface OperationParameter{
 })
 export class NestService {
 
-  constructor() { }
+  apiurl: string = 'http://localhost:3000/'
+
+  constructor(private http: HttpClient) { }
 
   nest: Array<Nest> = [
     {
@@ -109,10 +112,11 @@ export class NestService {
             },
             {
               name: '@zmienna',
-              input: true
+              input: true,
+              value: '#Wartosc wejsciowa z parametrow pytania#'
             },
             {
-              name: '@wynik1',
+              name: '@wynik2',
               output: true
             }
           ]
@@ -320,25 +324,26 @@ export class NestService {
   ]
   
   get() {
-    return of(this.nest);
+    //this.http.get(this.apiurl)
+    return this.http.get(this.apiurl + "nests")
+    //return of(this.nest);
+  }
+
+  getHttp(uri: string){
+    return this.http.get(this.apiurl + uri)
   }
 
   nestSQLProcedure(name: string, inputs: any[], outputs: any[]){
     return new Promise<any>(resolve=>{
-      let apiUrl = `http://localhost:3000/${name}`
-      // post do wykonania procki
-      // this.http.post(apiUrl,inputs).subscribe(res=>{
-      //   res.forEach(param=>{
-      //     // jezeli jest output o danym kluczu to podmieniamy
-      //     outputs[param] = param
-      //   })
-      // })
-      outputs.forEach((param: {})=>{
-        for(let p in param){
-          param[p] = 'zwroconyWynik'
-        }
+      this.http.get(this.apiurl + `sqlProcedures?name=${name}`).subscribe(res=>{
+        let response = res[0].response
+        outputs.forEach((param: {})=>{
+          for(let p of response){
+            param[p.name] = p.value
+          }
+        })
+        resolve(outputs)
       })
-      resolve(outputs)
     })
   }
 }

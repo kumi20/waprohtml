@@ -23,8 +23,9 @@ import { LogOnComponent } from './log-on/log-on.component';
 import { HeaderComponent } from './header/header.component';
 import { HotkeyListenerDirective } from './hotkey-listener.directive';
 import { ArtykulyComponent } from './artykuly/artykuly.component';
-import { DxPopupModule, DxTextAreaModule, DxTextBoxModule } from 'devextreme-angular';
+import { DxDataGridComponent, DxDataGridModule, DxPopupModule, DxTextAreaModule, DxTextBoxModule } from 'devextreme-angular';
 import { NestComponent } from './nest/nest.component';
+import { DokumentyMagazynoweComponent } from './dokumenty-magazynowe/dokumenty-magazynowe.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NestComponent } from './nest/nest.component';
     HeaderComponent,
     HotkeyListenerDirective,
     ArtykulyComponent,
-    NestComponent
+    NestComponent,
+    DokumentyMagazynoweComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,7 @@ import { NestComponent } from './nest/nest.component';
     DxButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    DxDataGridModule,
     HttpClientModule,
     DxTextAreaModule,
     DxPopupModule,
