@@ -23,9 +23,10 @@ import { LogOnComponent } from './log-on/log-on.component';
 import { HeaderComponent } from './header/header.component';
 import { HotkeyListenerDirective } from './hotkey-listener.directive';
 import { ArtykulyComponent } from './artykuly/artykuly.component';
-import { DxDataGridComponent, DxDataGridModule, DxPopupModule, DxTextAreaModule, DxTextBoxModule } from 'devextreme-angular';
+import { DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxPopupModule, DxSelectBoxModule, DxTextAreaModule, DxTextBoxModule } from 'devextreme-angular';
 import { NestComponent } from './nest/nest.component';
 import { DokumentyMagazynoweComponent } from './dokumenty-magazynowe/dokumenty-magazynowe.component';
+import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DokumentyMagazynoweComponent } from './dokumenty-magazynowe/dokumenty-m
     HotkeyListenerDirective,
     ArtykulyComponent,
     NestComponent,
-    DokumentyMagazynoweComponent
+    DokumentyMagazynoweComponent,
+    DynamicComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,9 @@ import { DokumentyMagazynoweComponent } from './dokumenty-magazynowe/dokumenty-m
     DxTextAreaModule,
     DxPopupModule,
     DxTextBoxModule,
+    DxNumberBoxModule,
+    DxDateBoxModule,
+    DxSelectBoxModule,
     TranslateModule.forRoot({
       loader:{
         provide: TranslateLoader,

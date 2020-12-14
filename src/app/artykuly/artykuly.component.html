@@ -108,3 +108,74 @@
         </dx-data-grid>
     </div>
 </dx-popup>
+
+<dx-popup
+    #tableFormPopup
+    [width]="500"
+    [height]="450"
+    [showTitle]="true"
+    title="Formularz Tabeli"
+    [dragEnabled]="false"
+    [closeOnOutsideClick]="false"
+    [(visible)]="externalTableFormPopupVisible"
+    (onHiding)="closeExternalTableFormPopup()">
+    <div *dxTemplate="let data of 'content'">
+        <!-- {{ externalTableFormStructure | json }} -->
+        <div class="row">
+            <div class="col-12" *ngFor="let col of externalTableFormStructure">
+                <div *ngIf="col.colType === 'string'">
+                    <div class="dx-field-label">{{col.colName}}</div>
+                    <div class="dx-field-value">
+                        <dx-text-box [(value)]="col.value"></dx-text-box>
+                    </div>
+                </div>
+                <div *ngIf="col.colType === 'number'">
+                    <div class="dx-field-label">{{col.colName}}</div>
+                    <div class="dx-field-value">
+                        <dx-number-box
+                            [(value)]="col.value"
+                            [showSpinButtons]="true"
+                            [showClearButton]="true"
+                        ></dx-number-box>
+                    </div>
+                </div>
+                <div *ngIf="col.colType === 'date'">
+                    <div class="dx-field-label">{{col.colName}}</div>
+                    <div class="dx-field-value">
+                        <dx-date-box [(value)]="col.value" type="datetime"></dx-date-box>
+                    </div>
+                </div>
+                <div *ngIf="col.colType === 'list'">
+                    <div class="dx-field-label">{{col.colName}}</div>
+                    <div class="dx-field-value">
+                        <dx-select-box
+                            [items]="col.values"
+                            [(value)]="col.value"
+                        ></dx-select-box>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col" style="text-align:right">
+                <dx-button text="Submit" icon="save" (onClick)="saveTableForm()"></dx-button>
+            </div>
+        </div>
+    </div>
+</dx-popup>
+
+<dx-popup
+    #tableKartotekaPopup
+    [width]="500"
+    [height]="450"
+    [showTitle]="true"
+    title="Kartoteka"
+    [dragEnabled]="false"
+    [closeOnOutsideClick]="false"
+    [(visible)]="kartotekaPopupVisible"
+    (onHiding)="closekartotekaPopup()">
+    <div *dxTemplate="let data of 'content'">
+        <app-dynamic-component [componentData]="kartotekaComponent" [extraData]="kartotekaExtraData" #dynamic></app-dynamic-component>
+    </div>
+</dx-popup>

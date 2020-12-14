@@ -1,322 +1,396 @@
 {
   "nests": [
-      {
-        "place": "Zdarzenie zwiazane z pojedynczym artykulem/dodawanie artykulu",
-        "code": "XGALYD",
-        "time": "przed",
-        "globalParameters": [
-          {
-            "name": "@wynik1",
-            "value": "false"
-          },
-          {
-            "name": "@zmienna1",
-            "value": 0
-          },
-          {
-            "name": "@idUser",
-            "value": 442
-          }
-        ],
-        "operations": [
-          {
-            "type": "procedura",
-            "sort": 1,
-            "operationParameters": [
-              {
-                "name": "sqlProcedure",
-                "value": "p_proceduraSQL_nazwaProcedury"
-              },
-              {
-                "name": "@param1",
-                "input": true,
-                "output": false,
-                "value": "wartosc_wejsciowa"
-              },
-              {
-                "name": "@wynik1",
-                "input": false,
-                "output": true
-              }
-            ]
-          },
-          {
-            "type": "komunikat",
-            "sort": 2,
-            "operationParameters": [
-              {
-                "name": "tresc",
-                "value": "tresc komunikatu z wartoscia globalna @wynik1 oraz wartoscia wejsciowa @input1"
-              },
-              {
-                "name": "@wynik1",
-                "input": true,
-                "useGlobals": true
-              },
-              {
-                "name": "@input1",
-                "input": true,
-                "value": "wartosc_wejsciowa"
-              }
-            ]
-          },
-          {
-            "type": "pytanie",
-            "sort": 3,
-            "operationParameters": [
-              {
-                "name": "tresc",
-                "value": "tresc pytania z wartoscia wejsciowa @zmienna"
-              },
-              {
-                "name": "@zmienna",
-                "input": true,
-                "value": "#Wartosc wejsciowa z parametrow pytania#"
-              },
-              {
-                "name": "@wynik2",
-                "output": true
-              }
-            ]
-          },
-          {
-            "type": "tabela_dodatkowa",
-            "sort": 4,
-            "execType": "full",
-            "operationParameters": [
-              {
-                "name": "tableName",
-                "input": true,
-                "value": "exampleTable"
-              },
-              {
-                "name": "@wynik1",
-                "input": true
-              }
-            ]
-          },
-          {
-            "type": "koniec",
-            "sort": 5,
-            "operationParameters": [
-              {
-                "name": "tresc wylogowania @zmienna1",
-                "input": true
-              },
-              {
-                "name": "@zmienna1",
-                "input": true
-              }
-            ]
-          },
-          {
-            "type": "formularz_tabeli",
-            "sort": 6,
-            "operationParameters": [
-              {
-                "name": "tableName",
-                "input": true,
-                "value": "tabelaDodatkowa"
-              },
-              {
-                "name": "idRecord",
-                "input": true,
-                "value": 12
-              },
-              {
-                "name": "@zmienna1",
-                "input": true
-              }
-            ]
-          },
-          {
-            "type": "if_then_else",
-            "sort": 7,
-            "operationParameters": [
-              {
-                "name": "@zmienna1",
-                "input": true,
-                "value": "",
-                "useGlobals": true
-              },
-              {
-                "name": "@wynik1", 
-                "output": true
-              }
-            ],
-            "positivePath": [
-              {
-                "type": "formularz_tabeli",
-                "sort": 1,
-                "operationParameters": [
-                  {
-                    "name": "tableName",
-                    "input": true,
-                    "value": "tabelaDodatkowa"
-                  },
-                  {
-                    "name": "idRecord",
-                    "input": true,
-                    "value": 12
-                  },
-                  {
-                    "name": "@zmienna1",
-                    "input": true
-                  }
-                ]
-              },
-              {
-                "type": "koniec",
-                "sort": 2,
-                "operationParameters": [
-                  {
-                    "name": "tresc wylogowania @zmienna1",
-                    "input": true
-                  },
-                  {
-                    "name": "@zmienna1",
-                    "input": true
-                  }
-                ]
-              }
-            ],
-            "negativePath": [
-              {
-                "type": "formularz_tabeli",
-                "sort": 1,
-                "operationParameters": [
-                  {
-                    "name": "tableName",
-                    "input": true,
-                    "value": "tabelaDodatkowa"
-                  },
-                  {
-                    "name": "idRecord",
-                    "input": true,
-                    "value": 12
-                  },
-                  {
-                    "name": "@zmienna1",
-                    "input": true
-                  }
-                ]
-              },
-              {
-                "type": "koniec",
-                "sort": 2,
-                "operationParameters": [
-                  {
-                    "name": "tresc wylogowania @zmienna1",
-                    "input": true
-                  },
-                  {
-                    "name": "@zmienna1",
-                    "input": true
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "kartoteka",
-            "sort": 8,
-            "execType": "readOnly",
-            "operationParameters": [
-              {
-                "name": "kartotekaName",
-                "input": true,
-                "value": "Dokumenty Magazynowe"
-              },
-              {
-                "name": "idUser",
-                "input": true,
-                "useGlobals": true
-              },
-              {
-                "name": "idRecord",
-                "input": true,
-                "value": 54
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "tableData":[
-      {
-        "name": "exampleTable",
-        "data": [
-          {
-            "pierwszaKolumna": "pierwszy",
-            "drugaKolumna": 1,
-            "trzeciaKolumna": "2020-12-01",
-            "czwartaKolumna": 0
-          },
-          {
-            "pierwszaKolumna": "drugi",
-            "drugaKolumna": 2,
-            "trzeciaKolumna": "2020-12-02",
-            "czwartaKolumna": 1
-          },
-          {
-            "pierwszaKolumna": "trzeci",
-            "drugaKolumna": 3,
-            "trzeciaKolumna": "2020-12-03",
-            "czwartaKolumna": 2
-          },
-          {
-            "pierwszaKolumna": "czwarty",
-            "drugaKolumna": 4,
-            "trzeciaKolumna": "2020-12-04",
-            "czwartaKolumna": 3
-          },
-          {
-            "pierwszaKolumna": "piąty",
-            "drugaKolumna": 5,
-            "trzeciaKolumna": "2020-12-05",
-            "czwartaKolumna": 4
-          }
-        ]
-      },
-      {
-        "name": "dokumentyMagazynowe",
-        "data": [
-          {
-            "numer": 1,
-            "data": "2020-12-01",
-            "kontahent": "Żabka",
-            "wartość netto": 546.54
-          },
-          {
-            "numer": 2,
-            "data": "2020-12-02",
-            "kontahent": "Społem",
-            "wartość netto": 547.45
-          },
-          {
-            "numer": 3,
-            "data": "2020-12-03",
-            "kontahent": "Społem",
-            "wartość netto": 4546.37
-          },
-          {
-            "numer": 4,
-            "data": "2020-12-04",
-            "kontahent": "Biedronka",
-            "wartość netto": 5534.96
-          },
-          {
-            "numer": 5,
-            "data": "2020-12-05",
-            "kontahent": "Auchan",
-            "wartość netto": 2342.44
-          }
-        ]
-      }
-    ],
-  "tableStructures":[
     {
-      "name": "exampleTable",
+      "place": "Zdarzenie zwiazane z pojedynczym artykulem/dodawanie artykulu",
+      "code": "XGALYD",
+      "time": "przed",
+      "globalParameters": [
+        {
+          "name": "@wynik1",
+          "value": "false"
+        },
+        {
+          "name": "@zmienna1",
+          "value": 0
+        },
+        {
+          "name": "@idUser",
+          "value": 442
+        }
+      ],
+      "operations": [
+        {
+          "type": "procedura",
+          "sort": 1,
+          "operationParameters": [
+            {
+              "name": "sqlProcedure",
+              "value": "p_proceduraSQL_nazwaProcedury"
+            },
+            {
+              "name": "@param1",
+              "input": true,
+              "output": false,
+              "value": "wartosc_wejsciowa"
+            },
+            {
+              "name": "@wynik1",
+              "input": false,
+              "output": true
+            }
+          ]
+        },
+        {
+          "type": "komunikat",
+          "sort": 2,
+          "operationParameters": [
+            {
+              "name": "tresc",
+              "value": "tresc komunikatu z wartoscia globalna @wynik1 oraz wartoscia wejsciowa @input1"
+            },
+            {
+              "name": "@wynik1",
+              "input": true,
+              "useGlobals": true
+            },
+            {
+              "name": "@input1",
+              "input": true,
+              "value": "wartosc_wejsciowa"
+            }
+          ]
+        },
+        {
+          "type": "pytanie",
+          "sort": 3,
+          "operationParameters": [
+            {
+              "name": "tresc",
+              "value": "tresc pytania z wartoscia wejsciowa @zmienna"
+            },
+            {
+              "name": "@zmienna",
+              "input": true,
+              "value": "#Wartosc wejsciowa z parametrow pytania#"
+            },
+            {
+              "name": "@wynik2",
+              "output": true
+            }
+          ]
+        },
+        {
+          "type": "tabela_dodatkowa",
+          "sort": 4,
+          "execType": "full",
+          "operationParameters": [
+            {
+              "name": "tableName",
+              "input": true,
+              "value": "tabelaDodatkowa"
+            },
+            {
+              "name": "@wynik1",
+              "input": true
+            }
+          ]
+        },
+        {
+          "type": "koniec",
+          "sort": 5,
+          "operationParameters": [
+            {
+              "name": "tresc",
+              "input": true,
+              "value": "tresc wylogowania @zmienna1"
+            },
+            {
+              "name": "@zmienna1",
+              "input": true
+            }
+          ]
+        },
+        {
+          "type": "formularz_tabeli",
+          "sort": 6,
+          "operationParameters": [
+            {
+              "name": "tableName",
+              "input": true,
+              "value": "tabelaDodatkowa"
+            },
+            {
+              "name": "idRecord",
+              "input": true,
+              "value": 12
+            },
+            {
+              "name": "@zmienna1",
+              "input": true
+            }
+          ]
+        },
+        {
+          "type": "if_then_else",
+          "sort": 7,
+          "operationParameters": [
+            {
+              "name": "@wynik2",
+              "input": true,
+              "value": "",
+              "useGlobals": true
+            },
+            {
+              "name": "@wynik3",
+              "output": true
+            }
+          ],
+          "positivePath": [
+            {
+              "type": "formularz_tabeli",
+              "sort": 1,
+              "operationParameters": [
+                {
+                  "name": "tableName",
+                  "input": true,
+                  "value": "tabelaDodatkowa"
+                },
+                {
+                  "name": "idRecord",
+                  "input": true,
+                  "value": 12
+                },
+                {
+                  "name": "@zmienna1",
+                  "input": true
+                }
+              ]
+            },
+            {
+              "type": "koniec",
+              "sort": 2,
+              "operationParameters": [
+                {
+                  "name": "tresc",
+                  "value": "tresc konca zagniezdzonego gniazda z wyborem sciezki @wynik2",
+                  "input": true
+                },
+                {
+                  "name": "@wynik2",
+                  "input": true,
+                  "useGlobals": true
+                }
+              ]
+            }
+          ],
+          "negativePath": [
+            {
+              "type": "formularz_tabeli",
+              "sort": 1,
+              "operationParameters": [
+                {
+                  "name": "tableName",
+                  "input": true,
+                  "value": "tabelaDodatkowa"
+                },
+                {
+                  "name": "idRecord",
+                  "input": true,
+                  "value": 12
+                },
+                {
+                  "name": "@zmienna1",
+                  "input": true
+                }
+              ]
+            },
+            {
+              "type": "koniec",
+              "sort": 2,
+              "operationParameters": [
+                {
+                  "name": "tresc",
+                  "value": "tresc konca zagniezdzonego gniazda z wyborem sciezki @wynik2",
+                  "input": true
+                },
+                {
+                  "name": "@wynik2",
+                  "input": true,
+                  "useGlobals": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "kartoteka",
+          "sort": 8,
+          "execType": "readOnly",
+          "operationParameters": [
+            {
+              "name": "kartotekaName",
+              "input": true,
+              "value": "Dokumenty Magazynowe"
+            },
+            {
+              "name": "idUser",
+              "input": true,
+              "useGlobals": true
+            },
+            {
+              "name": "idRecord",
+              "input": true,
+              "value": 54
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "tableData": [
+    {
+      "name": "tabelaDodatkowa",
+      "data": [
+        {
+          "pierwszaKolumna": "pierwszy",
+          "drugaKolumna": 1,
+          "trzeciaKolumna": "2020-12-01",
+          "czwartaKolumna": 0
+        },
+        {
+          "pierwszaKolumna": "drugi",
+          "drugaKolumna": 2,
+          "trzeciaKolumna": "2020-12-02",
+          "czwartaKolumna": 1
+        },
+        {
+          "pierwszaKolumna": "trzeci",
+          "drugaKolumna": 3,
+          "trzeciaKolumna": "2020-12-03",
+          "czwartaKolumna": 2
+        },
+        {
+          "pierwszaKolumna": "czwarty",
+          "drugaKolumna": 4,
+          "trzeciaKolumna": "2020-12-04",
+          "czwartaKolumna": 3
+        },
+        {
+          "pierwszaKolumna": "piąty",
+          "drugaKolumna": 5,
+          "trzeciaKolumna": "2020-12-05",
+          "czwartaKolumna": 4
+        }
+      ]
+    },
+    {
+      "name": "dokumentyMagazynowe",
+      "data": [
+        {
+          "numer": 1,
+          "data": "2020-12-01",
+          "kontahent": "Żabka",
+          "wartość netto": 546.54
+        },
+        {
+          "numer": 2,
+          "data": "2020-12-02",
+          "kontahent": "Społem",
+          "wartość netto": 547.45
+        },
+        {
+          "numer": 3,
+          "data": "2020-12-03",
+          "kontahent": "Społem",
+          "wartość netto": 4546.37
+        },
+        {
+          "numer": 4,
+          "data": "2020-12-04",
+          "kontahent": "Biedronka",
+          "wartość netto": 5534.96
+        },
+        {
+          "numer": 5,
+          "data": "2020-12-05",
+          "kontahent": "Auchan",
+          "wartość netto": 2342.44
+        }
+      ]
+    },
+    {
+      "pierwszaKolumna": "4321",
+      "drugaKolumna": 4,
+      "trzeciaKolumna": "2020-12-17T10:34:00.000Z",
+      "czwartaKolumna": 2,
+      "id": 1
+    },
+    {
+      "pierwszaKolumna": "765",
+      "drugaKolumna": 5432,
+      "trzeciaKolumna": "2020-12-09T10:37:00.000Z",
+      "czwartaKolumna": 3,
+      "id": 1607942266607
+    },
+    {
+      "pierwszaKolumna": "ewq",
+      "drugaKolumna": 4321,
+      "trzeciaKolumna": "2020-12-08T10:43:00.000Z",
+      "czwartaKolumna": 3,
+      "id": 1607942593824
+    },
+    {
+      "id": 1607948508277
+    },
+    {
+      "id": 1607950241691
+    },
+    {
+      "id": 1607950405631
+    },
+    {
+      "id": 1607952438701
+    },
+    {
+      "id": 1607952498147
+    },
+    {
+      "id": 1607952531417
+    },
+    {
+      "id": 1607953088380
+    },
+    {
+      "id": 1607953127214
+    },
+    {
+      "id": 1607953489082
+    },
+    {
+      "id": 1607953496379
+    },
+    {
+      "id": 1607953633149
+    },
+    {
+      "id": 1607953704209
+    },
+    {
+      "id": 1607953709181
+    },
+    {
+      "id": 1607953723755
+    },
+    {
+      "id": 1607954047439
+    },
+    {
+      "id": 1607954052697
+    }
+  ],
+  "tableStructures": [
+    {
+      "name": "tabelaDodatkowa",
       "structure": [
         {
           "colName": "pierwszaKolumna",
@@ -334,16 +408,22 @@
           "colName": "czwartaKolumna",
           "colType": "list",
           "values": [
-            0,1,2,3,4,5,6
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
           ]
         }
       ]
     }
   ],
-  "sqlProcedures":[
+  "sqlProcedures": [
     {
       "name": "p_proceduraSQL_nazwaProcedury",
-      "inputs":[
+      "inputs": [
         {
           "name": "@param1"
         }

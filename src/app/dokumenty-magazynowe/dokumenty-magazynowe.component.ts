@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dokumenty-magazynowe',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dokumenty-magazynowe.component.scss']
 })
 export class DokumentyMagazynoweComponent implements OnInit {
+
+  @Input() execType: string = 'full'
 
   dataSource = [
     {

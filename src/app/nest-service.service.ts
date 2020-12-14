@@ -329,6 +329,10 @@ export class NestService {
     //return of(this.nest);
   }
 
+  post(uri: string, data: Object){
+    return this.http.post(this.apiurl + uri, data)
+  }
+
   getHttp(uri: string){
     return this.http.get(this.apiurl + uri)
   }

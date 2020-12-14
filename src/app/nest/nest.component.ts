@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
+import { ArtykulyComponent } from '../artykuly/artykuly.component';
+import { DokumentyMagazynoweComponent } from '../dokumenty-magazynowe/dokumenty-magazynowe.component';
 import { Nest, NestService, Operation } from '../nest-service.service';
 
 export interface QuestionPromise{
@@ -46,9 +48,16 @@ export class NestComponent implements OnInit {
     })
   }
 
-  runNest(nest: Nest){
-    return new Promise<boolean>(async resolve=>{
-      for(const operation of nest.operations){
+  breakNest: boolean = false;
+
+  runInsideNest(operations: Operation[]){
+    return new Promise<boolean>(async resolve => {
+      for(const operation of operations){
+        if(this.breakNest){
+          this.breakNest = false;
+          break;
+        } 
+
         switch(operation.type){
           case 'procedura':
             await this.runNestProcedure(operation);
@@ -65,10 +74,159 @@ export class NestComponent implements OnInit {
             await this.runExternalTable(operation);
             console.log('globals after external table', this.nestParameters)
             break;
+          case 'koniec':
+            //this.breakNest = true;
+            await this.runNestMessage(operation);
+            console.log('globals after end', this.nestParameters)
+            break;
+            // 
+          case 'formularz_tabeli':
+            await this.runNestTableForm(operation);
+            console.log('globals after end', this.nestParameters)
+            break;
+          case 'if_then_else':
+            await this.runNestIfThenElse(operation);
+            console.log('globals after if then else', this.nestParameters)
+            break;
+          case 'kartoteka':
+            await this.runNestKartoteka(operation);
+            console.log('globals after kartoteka', this.nestParameters)
+            break;
           default:
             console.log('undefined operation');
             break;
         }
+      }
+      resolve(true);
+    })
+  }
+
+  runNest(nest: Nest){
+    return new Promise<boolean>(async resolve=>{
+      for(const operation of nest.operations){
+        if(this.breakNest){
+          this.breakNest = false;
+          break;
+        } 
+
+        switch(operation.type){
+          case 'procedura':
+            await this.runNestProcedure(operation);
+            break;
+          case 'komunikat':
+            await this.runNestMessage(operation);
+            console.log('globals after message', this.nestParameters)
+            break;
+          case 'pytanie':
+            await this.runNestQuestion(operation);
+            console.log('globals after question', this.nestParameters)
+            break;
+          case 'tabela_dodatkowa':
+            await this.runExternalTable(operation);
+            console.log('globals after external table', this.nestParameters)
+            break;
+          case 'koniec':
+            //this.breakNest = true;
+            await this.runNestMessage(operation);
+            console.log('globals after end', this.nestParameters)
+            break;
+            // 
+          case 'formularz_tabeli':
+            await this.runNestTableForm(operation);
+            console.log('globals after end', this.nestParameters)
+            break;
+          case 'if_then_else':
+            await this.runNestIfThenElse(operation);
+            console.log('globals after if then else', this.nestParameters)
+            break;
+          case 'kartoteka':
+            await this.runNestKartoteka(operation);
+            console.log('globals after kartoteka', this.nestParameters)
+            break;
+          default:
+            console.log('undefined operation');
+            break;
+        }
+      }
+      resolve(true);
+    })
+  }
+
+  component: any = [
+    { name: 'artykuly', component: ArtykulyComponent },
+    { name: 'Dokumenty Magazynowe', component: DokumentyMagazynoweComponent },
+  ];
+
+  kartotekaComponent: any;
+  kartotekaPopupVisible: boolean = false;
+  kartotekaSubject = new BehaviorSubject(false);
+  kartotekaSubscription;
+  kartotekaExtraData = {};
+
+  closekartotekaPopup(){
+    this.kartotekaPopupVisible = false;
+    this.kartotekaSubject.next(true)
+  }
+
+  runNestKartoteka(operation: Operation){
+    let inputs = []
+    let outputs = []
+    let kartoteka: string = null
+    let execType: string = operation.execType;
+    operation.operationParameters.forEach(parameter=>{
+      if(parameter.name === 'kartotekaName'){
+        kartoteka = parameter.value
+      }
+      if(parameter.input){
+        let val = parameter.useGlobals ? this.findInGlobals(parameter.name) : parameter.value;
+        inputs.push(val)
+        //question = question.replaceAll(parameter.name,val);
+      }else if(parameter.output){
+        outputs[parameter.name] = null
+      }
+    })
+    return new Promise<boolean>(resolve=>{
+      this.kartotekaComponent = this.component.find(comp=>comp.name === kartoteka).component
+      this.kartotekaExtraData = {'execType': execType};
+      this.kartotekaPopupVisible = true;
+      this.kartotekaSubscription = this.kartotekaSubject.subscribe(sub=>{
+        if(sub){
+          this.kartotekaSubscription.unsubscribe()
+          this.kartotekaSubject.next(false)
+          resolve(true)
+        }
+      })
+    })
+  }
+
+  runNestIfThenElse(operation: Operation){
+    let inputs = []
+    let outputs = []
+    operation.operationParameters.forEach(parameter=>{
+      if(parameter.input){
+        let obj = {}
+        let val = parameter.useGlobals ? this.findInGlobals(parameter.name) : parameter.value;
+        obj[parameter.name] = val;
+        inputs.push(obj)
+        //question = question.replaceAll(parameter.name,val);
+      }else if(parameter.output){
+        outputs[parameter.name] = null
+      }
+    })
+
+    console.log(inputs);
+    return new Promise<boolean>(async resolve=>{
+      //if(operation)
+      let result: boolean = true;
+      for(let param of inputs){
+        for(let par in param){
+          if(!param[par]) result = false
+        }
+      }
+      if(result){
+        await this.runInsideNest(operation.positivePath)
+      }else{
+        await this.runInsideNest(operation.negativePath)
       }
       resolve(true);
     })
@@ -79,6 +237,38 @@ export class NestComponent implements OnInit {
   externalTablePopupVisible: boolean = false;
   externalTableSubject = new BehaviorSubject(false);
   externalTableSubscription;
+
+  externalTableFormStructure
+  externalTableFormSubject = new BehaviorSubject(false)
+  externalTableFormPopupVisible
+  externalTableFormSubscription
+
+  runNestTableForm(operation: Operation){
+    let tableName: string = null
+    operation.operationParameters.forEach(parameter=>{
+      if(parameter.name === 'tableName'){
+        tableName = parameter.value
+      }
+      else if(parameter.input){
+        let val = parameter.useGlobals ? this.findInGlobals(parameter.name) : parameter.value;
+        //question = question.replaceAll(parameter.name,val);
+      }
+    })
+    return new Promise<boolean>(resolve=>{
+      this.nestService.getHttp( "tableStructures?name="+ tableName).subscribe(res=>{
+        console.log(res)
+        this.externalTableFormStructure = res[0].structure
+        this.externalTableFormPopupVisible = true;
+        this.externalTableFormSubscription = this.externalTableFormSubject.subscribe(sub=>{
+          if(sub){
+            this.externalTableFormSubscription.unsubscribe()
+            this.externalTableFormSubject.next(false)
+            resolve(true)
+          }
+        })
+      })
+    })
+  }
 
   runExternalTable(operation: Operation){
     let tableName: string = null
@@ -172,9 +362,33 @@ export class NestComponent implements OnInit {
     })
   }
 
+  prepareSaveFormData(): Object{
+    const obj: Object = {};
+    for(let data of this.externalTableFormStructure){
+      obj[data.colName] = data.value
+    }
+    obj['id'] = new Date().getTime()
+    return obj
+  }
+
+  saveTableForm(){
+    this.nestService.post(`tableData?name=tabelaDodatkowa`,this.prepareSaveFormData()).subscribe(res=>{
+      // console.log(res)
+      if(res){
+        this.externalTableFormPopupVisible = false;
+        this.externalTableFormSubject.next(true)
+      }
+    })
+  }
+
   closeQuestionPopup(value: boolean){
     this.questionPopup.instance.hide()
     this.questionSubject.next({visible: true, answer: value})
+  }
+
+  closeExternalTableFormPopup(){
+    this.externalTableFormPopupVisible = false;
+    this.externalTableFormSubject.next(true)
   }
 
   closeExternalTablePopup(){
