@@ -1,0 +1,181 @@
+<dx-button icon="plus" (onClick)="addArticle()"></dx-button>
+
+<div class="form" *ngIf="formVisible">
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <div class="dx-field-label">Default mode</div>
+            <div class="dx-field-value">
+                <dx-text-box value="John Smith"></dx-text-box>
+            </div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">With placeholder</div>
+            <div class="dx-field-value">
+                <dx-text-box placeholder="Enter full name here..."></dx-text-box>
+            </div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">With clear button</div>
+            <div class="dx-field-value">
+                <dx-text-box value="John Smith" [showClearButton]="true">
+                </dx-text-box>
+            </div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Password mode</div>
+            <div class="dx-field-value">
+                <dx-text-box
+                    mode="password"
+                    placeholder="Enter password"
+                    [showClearButton]="true"
+                    value="f5lzKs0T"
+                ></dx-text-box>
+            </div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Email (read only)</div>
+            <div class="dx-field-value">
+                <dx-text-box
+                    [readOnly]="true"
+                    [hoverStateEnabled]="false"
+                    [(value)]="emailValue"
+                ></dx-text-box>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-right">
+            <dx-button icon="save" text="Submit"></dx-button>
+        </div>
+    </div>
+</div>
+
+<dx-popup
+    [width]="300"
+    [height]="250"
+    [showTitle]="true"
+    title="Komunikat"
+    [dragEnabled]="false"
+    [closeOnOutsideClick]="true"
+    [(visible)]="popupVisible"
+    (onHiding)="closePopup($event)">
+    <div *dxTemplate="let data of 'content'">
+        <p>
+            {{message}}
+        </p>
+    </div>
+</dx-popup>
+
+<dx-popup
+    #questionPopup
+    [width]="300"
+    [height]="250"
+    [showTitle]="true"
+    title="Pytanie"
+    [dragEnabled]="false"
+    [closeOnOutsideClick]="false"
+    [(visible)]="questionPopupVisible">
+    <div *dxTemplate="let data of 'content'">
+        <p>
+            {{questionMessage}}
+        </p>
+        <div>
+            <dx-button text="Tak" (onClick)="closeQuestionPopup(true)"></dx-button>
+            <dx-button text="Nie" (onClick)="closeQuestionPopup(false)"></dx-button>
+        </div>
+    </div>
+</dx-popup>
+
+<dx-popup
+    #questionPopup
+    [width]="500"
+    [height]="450"
+    [showTitle]="true"
+    title="Tabela Dodatkowa"
+    [dragEnabled]="false"
+    [closeOnOutsideClick]="false"
+    [(visible)]="externalTablePopupVisible"
+    (onHiding)="closeExternalTablePopup()">
+    <div *dxTemplate="let data of 'content'">
+        <dx-data-grid 
+            [dataSource]="externalTableData">
+            <dxo-editing 
+            mode="row"
+            [allowUpdating]="externalTableExecRights"
+            [allowDeleting]="externalTableExecRights"
+            [allowAdding]="externalTableExecRights">
+        </dxo-editing>
+        </dx-data-grid>
+    </div>
+</dx-popup>
+
+<dx-popup
+    #tableFormPopup
+    [width]="500"
+    [height]="450"
+    [showTitle]="true"
+    title="Formularz Tabeli"
+    [dragEnabled]="false"
+    [closeOnOutsideClick]="false"
+    [(visible)]="externalTableFormPopupVisible"
+    (onHiding)="closeExternalTableFormPopup()">
+    <div *dxTemplate="let data of 'content'">
+        <!-- {{ externalTableFormStructure | json }} -->
+        <div class="row">
+            <div class="col-12" *ngFor="let col of externalTableFormStructure">
+                <div *ngIf="col.colType === 'string'">
+                    <div class="dx-field-label">{{col.colName}}</div>
+                    <div class="dx-field-value">
+                        <dx-text-box [(value)]="col.value"></dx-text-box>
+                    </div>
+                </div>
+                <div *ngIf="col.colType === 'number'">
+                    <div class="dx-field-label">{{col.colName}}</div>
+                    <div class="dx-field-value">
+                        <dx-number-box
+                            [(value)]="col.value"
+                            [showSpinButtons]="true"
+                            [showClearButton]="true"
+                        ></dx-number-box>
+                    </div>
+                </div>
+                <div *ngIf="col.colType === 'date'">
+                    <div class="dx-field-label">{{col.colName}}</div>
+                    <div class="dx-field-value">
+                        <dx-date-box [(value)]="col.value" type="datetime"></dx-date-box>
+                    </div>
+                </div>
+                <div *ngIf="col.colType === 'list'">
+                    <div class="dx-field-label">{{col.colName}}</div>
+                    <div class="dx-field-value">
+                        <dx-select-box
+                            [items]="col.values"
+                            [(value)]="col.value"
+                        ></dx-select-box>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col" style="text-align:right">
+                <dx-button text="Submit" icon="save" (onClick)="saveTableForm()"></dx-button>
+            </div>
+        </div>
+    </div>
+</dx-popup>
+
+<dx-popup
+    #tableKartotekaPopup
+    [width]="500"
+    [height]="450"
+    [showTitle]="true"
+    title="Kartoteka"
+    [dragEnabled]="false"
+    [closeOnOutsideClick]="false"
+    [(visible)]="kartotekaPopupVisible"
+    (onHiding)="closekartotekaPopup()">
+    <div *dxTemplate="let data of 'content'">
+        <app-dynamic-component [componentData]="kartotekaComponent" [extraData]="kartotekaExtraData" #dynamic></app-dynamic-component>
+    </div>
+</dx-popup>

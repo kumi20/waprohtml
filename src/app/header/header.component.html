@@ -1,10 +1,16 @@
 <header>
     <div class="container">
         <div class="row">
-            <div class="col-6">
-                <img src="../../assets/img/logo-new.png" alt="wapro erp" class="logo-dashboard-wapro-erp">
+            <div class="col-3">
+                <img src="../../assets/img/logo-new.png" alt="wapro erp" [routerLink]="['/']" class="logo-dashboard-wapro-erp">
             </div>
-            <div class="col-6 text-right">
+            <div class="col-1">
+                <a [routerLink]="['articles']"><h5>Artykuly</h5></a>
+            </div>
+            <div class="col-3">
+                <a [routerLink]="['documents']"><h5>Dokumenty Mag.</h5></a>
+            </div>
+            <div class="col-5 text-right">
                 <h5 (click)="event.useLanguage('pl')">PL</h5>
                 <h5 (click)="event.useLanguage('en')">EN</h5>
             </div>

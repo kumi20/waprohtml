@@ -16,6 +16,7 @@ import { AppServices } from './app-services.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PushNotificationService } from './push-notification.service';
+import { NestService } from './nest-service.service'
 
 import { AuthCasModModule } from 'auth-cas-mod';
 
@@ -23,10 +24,14 @@ import { UserIdleModule } from 'angular-user-idle';
 import { LogOnComponent } from './log-on/log-on.component';
 import { HeaderComponent } from './header/header.component';
 import { HotkeyListenerDirective } from './hotkey-listener.directive';
+import { ArtykulyComponent } from './artykuly/artykuly.component';
+import { DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxPopupModule, DxSelectBoxModule, DxTextAreaModule, DxTextBoxModule } from 'devextreme-angular';
+import { NestComponent } from './nest/nest.component';
+import { DokumentyMagazynoweComponent } from './dokumenty-magazynowe/dokumenty-magazynowe.component';
+import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
 import { StartComponent } from './start/start.component';
 import { Test1Component } from './test1/test1.component';
 import { Test2Component } from './test2/test2.component';
-
 
 @NgModule({
   declarations: [
@@ -34,7 +39,11 @@ import { Test2Component } from './test2/test2.component';
     LogOnComponent,
     HeaderComponent,
     HotkeyListenerDirective,
-    StartComponent,
+    ArtykulyComponent,
+    NestComponent,
+    DokumentyMagazynoweComponent,
+    DynamicComponentComponent,
+StartComponent,
     Test1Component,
     Test2Component
   ],
@@ -44,7 +53,14 @@ import { Test2Component } from './test2/test2.component';
     DxButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    DxDataGridModule,
     HttpClientModule,
+    DxTextAreaModule,
+    DxPopupModule,
+    DxTextBoxModule,
+    DxNumberBoxModule,
+    DxDateBoxModule,
+    DxSelectBoxModule,
     TranslateModule.forRoot({
       loader:{
         provide: TranslateLoader,
@@ -56,7 +72,7 @@ import { Test2Component } from './test2/test2.component';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     UserIdleModule.forRoot({idle: 10, timeout: 60, ping: 120})
   ],
-  providers: [AppServices, PushNotificationService],
+  providers: [AppServices, PushNotificationService, NestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
