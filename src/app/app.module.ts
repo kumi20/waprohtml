@@ -17,10 +17,15 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PushNotificationService } from './push-notification.service';
 
+import { AuthCasModModule } from 'auth-cas-mod';
+
 import { UserIdleModule } from 'angular-user-idle';
 import { LogOnComponent } from './log-on/log-on.component';
 import { HeaderComponent } from './header/header.component';
 import { HotkeyListenerDirective } from './hotkey-listener.directive';
+import { StartComponent } from './start/start.component';
+import { Test1Component } from './test1/test1.component';
+import { Test2Component } from './test2/test2.component';
 
 
 @NgModule({
@@ -28,7 +33,10 @@ import { HotkeyListenerDirective } from './hotkey-listener.directive';
     AppComponent,
     LogOnComponent,
     HeaderComponent,
-    HotkeyListenerDirective
+    HotkeyListenerDirective,
+    StartComponent,
+    Test1Component,
+    Test2Component
   ],
   imports: [
     BrowserModule,
@@ -44,6 +52,7 @@ import { HotkeyListenerDirective } from './hotkey-listener.directive';
         deps: [HttpClient]
       }
     }),
+    AuthCasModModule.forRoot(environment),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     UserIdleModule.forRoot({idle: 10, timeout: 60, ping: 120})
   ],

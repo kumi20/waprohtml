@@ -34,7 +34,9 @@
 			  "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/statistic.js"
+            ]
           },
           "configurations": {
             "production": {

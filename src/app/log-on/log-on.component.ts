@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit, SystemJsNgModuleLoader, HostListener } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AppServices } from '../app-services.service';
+import { TranslateService } from '@ngx-translate/core'
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventService } from '../event.service';
@@ -24,7 +25,7 @@ export class LogOnComponent implements OnInit, OnDestroy {
 
   validationMessages = {
     login: {
-      required: "Login jest wymagany"
+      required: this.translate.instant('logOn.password')
     },
     password: {
       required: "Hasło jest wymagane"
@@ -42,12 +43,16 @@ export class LogOnComponent implements OnInit, OnDestroy {
   }
 
 
-  constructor(public formBuilder: FormBuilder, private appService: AppServices, private route: ActivatedRoute, public _route: Router, private event: EventService) {
+  constructor(private translate: TranslateService, public formBuilder: FormBuilder, private appService: AppServices, private route: ActivatedRoute, public _route: Router, private event: EventService) {
     this.onCreateForm();
-    console.log(localStorage.getItem('lang'))
   }
 
   ngOnInit() {
+    this.translate.get('logOn.login-required').subscribe( (text: string) => {
+      console.log('asdf')
+      this.validationMessages.login.required = text;
+    });
+
     if (window.innerWidth < 376) {
       document.body.style.background = "url('./assets/img/mobile_kv.svg') no-repeat 185px 0px";
     }
@@ -62,6 +67,12 @@ export class LogOnComponent implements OnInit, OnDestroy {
       );
     });    
   }
+
+  test(){
+    this.validationMessages.login.required = this.translate.instant('logOn.password')
+    console.log(this.translate.instant('logOn.password'))
+  }
+
 
   ngOnDestroy() {
     document.body.style.background = "none";
