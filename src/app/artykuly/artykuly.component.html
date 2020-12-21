@@ -3,49 +3,39 @@
 <div class="form" *ngIf="formVisible">
     <div class="dx-fieldset">
         <div class="dx-field">
-            <div class="dx-field-label">Default mode</div>
+            <div class="dx-field-label">Nazwa</div>
             <div class="dx-field-value">
-                <dx-text-box value="John Smith"></dx-text-box>
+                <dx-text-box value=""></dx-text-box>
             </div>
         </div>
+    </div>
+    <div class="dx-fieldset">
         <div class="dx-field">
-            <div class="dx-field-label">With placeholder</div>
+            <div class="dx-field-label">Rodzaj</div>
             <div class="dx-field-value">
-                <dx-text-box placeholder="Enter full name here..."></dx-text-box>
+                <dx-text-box value=""></dx-text-box>
             </div>
         </div>
+    </div>
+    <div class="dx-fieldset">
         <div class="dx-field">
-            <div class="dx-field-label">With clear button</div>
+            <div class="dx-field-label">Indeks katalogowy</div>
             <div class="dx-field-value">
-                <dx-text-box value="John Smith" [showClearButton]="true">
-                </dx-text-box>
+                <dx-text-box value=""></dx-text-box>
             </div>
         </div>
+    </div>
+    <div class="dx-fieldset">
         <div class="dx-field">
-            <div class="dx-field-label">Password mode</div>
+            <div class="dx-field-label">Wyróżnik</div>
             <div class="dx-field-value">
-                <dx-text-box
-                    mode="password"
-                    placeholder="Enter password"
-                    [showClearButton]="true"
-                    value="f5lzKs0T"
-                ></dx-text-box>
-            </div>
-        </div>
-        <div class="dx-field">
-            <div class="dx-field-label">Email (read only)</div>
-            <div class="dx-field-value">
-                <dx-text-box
-                    [readOnly]="true"
-                    [hoverStateEnabled]="false"
-                    [(value)]="emailValue"
-                ></dx-text-box>
+                <dx-text-box value=""></dx-text-box>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col text-right">
-            <dx-button icon="save" text="Submit"></dx-button>
+            <dx-button icon="save" text="Submit" (onClick)="submitArticle()"></dx-button>
         </div>
     </div>
 </div>
