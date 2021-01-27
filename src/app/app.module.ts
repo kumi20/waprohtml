@@ -29,9 +29,8 @@ import { DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxPopupModule, Dx
 import { NestComponent } from './nest/nest.component';
 import { DokumentyMagazynoweComponent } from './dokumenty-magazynowe/dokumenty-magazynowe.component';
 import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
-import { StartComponent } from './start/start.component';
-import { Test1Component } from './test1/test1.component';
-import { Test2Component } from './test2/test2.component';
+
+import { MenuWaproModule } from './menu-wapro/menu-wapro.module';
 
 @NgModule({
   declarations: [
@@ -43,11 +42,9 @@ import { Test2Component } from './test2/test2.component';
     NestComponent,
     DokumentyMagazynoweComponent,
     DynamicComponentComponent,
-StartComponent,
-    Test1Component,
-    Test2Component
   ],
   imports: [
+    MenuWaproModule,
     BrowserModule,
     AppRoutingModule,
     DxButtonModule,

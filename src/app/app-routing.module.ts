@@ -4,18 +4,12 @@ import { ArtykulyComponent } from './artykuly/artykuly.component';
 import { DokumentyMagazynoweComponent } from './dokumenty-magazynowe/dokumenty-magazynowe.component';
 
 import { LogOnComponent } from './log-on/log-on.component';
-import { StartComponent } from './start/start.component';
 import { Test1Component } from './test1/test1.component';
-import { Test2Component } from './test2/test2.component';
 
 const routes: Routes = [
   { path: "", component: LogOnComponent },
-  { path: "test1", component: StartComponent, children:[
-    { path: "", component: Test1Component, outlet: 'panel' },
-  ]},
-  { path: "test2", component: StartComponent, children:[
-    { path: "", component: Test2Component, outlet: 'panel' },
-  ]},
+  { path: "start", loadChildren: () => import ('./start/start.module').then(m => m.StartModule)},
+  { path: "faktury",  loadChildren: () => import ('./invoce/invoce.module').then(m => m.InvoceModule)},
   { path: 'articles', component: ArtykulyComponent},
   { path: 'documents', component: DokumentyMagazynoweComponent}
 ];
@@ -29,3 +23,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+// 

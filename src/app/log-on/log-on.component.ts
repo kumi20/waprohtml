@@ -49,7 +49,6 @@ export class LogOnComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.translate.get('logOn.login-required').subscribe( (text: string) => {
-      console.log('asdf')
       this.validationMessages.login.required = text;
     });
 
@@ -67,12 +66,6 @@ export class LogOnComponent implements OnInit, OnDestroy {
       );
     });    
   }
-
-  test(){
-    this.validationMessages.login.required = this.translate.instant('logOn.password')
-    console.log(this.translate.instant('logOn.password'))
-  }
-
 
   ngOnDestroy() {
     document.body.style.background = "none";

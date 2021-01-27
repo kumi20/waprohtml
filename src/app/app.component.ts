@@ -29,7 +29,7 @@ export class AppComponent implements OnInit, AfterViewInit{
     private swPush: SwPush, private pushService: PushNotificationService, 
     private bnIdle: UserIdleService, private matomoInjector: MatomoInjector,
     private router: Router, private matomoTracker: MatomoTracker){
-    translate.setDefaultLang('pl'); 
+    (localStorage.getItem('lang')?translate.setDefaultLang(localStorage.getItem('lang')):translate.setDefaultLang('pl'))
 
     this.bnIdle.startWatching(); 
     
@@ -67,7 +67,6 @@ export class AppComponent implements OnInit, AfterViewInit{
       skip(1),
       delay(0),
     ).subscribe(next =>{
-      console.log('routing', window.location)
       //this.matomoTracker.setCustomUrl('/' +  window.location.hash.substr(1));
       this.matomoTracker.setDocumentTitle(window.location.hash)
      // this.matomoTracker.trackEvent('category', 'action', 'dodanie faktury', 0);
