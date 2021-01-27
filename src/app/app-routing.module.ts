@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { ArtykulyComponent } from './artykuly/artykuly.component';
 import { DokumentyMagazynoweComponent } from './dokumenty-magazynowe/dokumenty-magazynowe.component';
 
-import { LogOnComponent } from './log-on/log-on.component'
+import { LogOnComponent } from './log-on/log-on.component';
 
 const routes: Routes = [
   { path: "", component: LogOnComponent },
+  { path: "start", loadChildren: () => import ('./start/start.module').then(m => m.StartModule)},
+  { path: "faktury",  loadChildren: () => import ('./invoce/invoce.module').then(m => m.InvoceModule)},
   { path: 'articles', component: ArtykulyComponent},
   { path: 'documents', component: DokumentyMagazynoweComponent}
 ];
@@ -20,3 +22,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+// 

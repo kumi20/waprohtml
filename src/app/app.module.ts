@@ -18,6 +18,8 @@ import { environment } from '../environments/environment';
 import { PushNotificationService } from './push-notification.service';
 import { NestService } from './nest-service.service'
 
+import { AuthCasModModule } from 'auth-cas-mod';
+
 import { UserIdleModule } from 'angular-user-idle';
 import { LogOnComponent } from './log-on/log-on.component';
 import { HeaderComponent } from './header/header.component';
@@ -28,6 +30,8 @@ import { NestComponent } from './nest/nest.component';
 import { DokumentyMagazynoweComponent } from './dokumenty-magazynowe/dokumenty-magazynowe.component';
 import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
 
+import { MenuWaproModule } from './menu-wapro/menu-wapro.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,9 +41,10 @@ import { DynamicComponentComponent } from './dynamic-component/dynamic-component
     ArtykulyComponent,
     NestComponent,
     DokumentyMagazynoweComponent,
-    DynamicComponentComponent
+    DynamicComponentComponent,
   ],
   imports: [
+    MenuWaproModule,
     BrowserModule,
     AppRoutingModule,
     DxButtonModule,
@@ -60,6 +65,7 @@ import { DynamicComponentComponent } from './dynamic-component/dynamic-component
         deps: [HttpClient]
       }
     }),
+    AuthCasModModule.forRoot(environment),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     UserIdleModule.forRoot({idle: 10, timeout: 60, ping: 120})
   ],

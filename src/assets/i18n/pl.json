@@ -1,4 +1,8 @@
 {
+  "menu":{
+    "invoce": "Faktury",
+    "new-invoce": "Nowa faktura"
+  },
   "logOn":{
     "title": "Zaloguj się do systemu",
     "login": "Login",

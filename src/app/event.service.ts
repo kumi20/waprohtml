@@ -9,6 +9,7 @@ import * as CryptoJS from 'crypto-js';
 
 import { Router } from '@angular/router';
 import notify from 'devextreme/ui/notify';
+import { DH_CHECK_P_NOT_SAFE_PRIME } from "constants";
 
 const SALT = "%CxR$%j$i9^2:9_0*2Q!230xs.+";
 
@@ -16,6 +17,8 @@ const SALT = "%CxR$%j$i9^2:9_0*2Q!230xs.+";
   providedIn: "root",
 })
 export class EventService {
+
+  language = new Subject<string>();
 
   public constructor(private translate: TranslateService, public AppServices: AppServices, private _route: Router) {
   }
@@ -36,6 +39,7 @@ export class EventService {
   useLanguage = (language: string) =>{
     localStorage.setItem('lang', language);
     this.translate.use(language)
+    this.language.next(language)
   }
 
   //szyfruje JSON do AES, aby dane w localstorage czy sessionstorage nie byly przechowywane jawnie

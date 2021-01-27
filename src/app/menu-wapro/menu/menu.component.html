@@ -1,0 +1,20 @@
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <img src="../../assets/img/logo-new.png" alt="wapro erp" class="logo-dashboard-wapro-erp">
+            </div>
+            <div class="col-1">
+                <a [routerLink]="['/faktury']">{{'menu.invoce' | translate}}</a>
+            </div>
+            <div class="col-3">
+                <a [routerLink]="['/faktury/nowa-faktura']"> {{'menu.new-invoce' | translate}}</a>
+            </div>
+            <div class="col-5 text-right">
+                <h5 (click)="event.useLanguage('pl')">PL</h5>
+                <h5 (click)="event.useLanguage('en')">EN</h5>
+            </div>
+        </div>        
+    </div>    
+</header>
+<div style="padding-top: 100px;"></div>

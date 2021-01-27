@@ -1,4 +1,8 @@
 {
+  "menu":{
+    "invoce": "Invoce",
+    "new-invoce": "New invoce"
+  },
   "logOn":{
     "title": "Log in to the system",
     "login": "Login",
