@@ -32,4 +32,12 @@ export class ArtykulyComponent extends NestComponent implements OnInit {
     this.formVisible = true;
   }
   
+  async submitArticle(){
+    const nest = this.findNest('XGALYD','po')
+
+    this.getNestGlobals(nest)
+    await this.runNest(nest)
+    
+    this.formVisible = false;
+  }
 }

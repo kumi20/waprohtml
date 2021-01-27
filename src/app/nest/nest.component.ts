@@ -75,7 +75,7 @@ export class NestComponent implements OnInit {
             console.log('globals after external table', this.nestParameters)
             break;
           case 'koniec':
-            //this.breakNest = true;
+            this.breakNest = true;
             await this.runNestMessage(operation);
             console.log('globals after end', this.nestParameters)
             break;
@@ -109,6 +109,7 @@ export class NestComponent implements OnInit {
           break;
         } 
 
+        console.log(operation)
         switch(operation.type){
           case 'procedura':
             await this.runNestProcedure(operation);
@@ -126,7 +127,7 @@ export class NestComponent implements OnInit {
             console.log('globals after external table', this.nestParameters)
             break;
           case 'koniec':
-            //this.breakNest = true;
+            this.breakNest = true;
             await this.runNestMessage(operation);
             console.log('globals after end', this.nestParameters)
             break;
@@ -200,6 +201,7 @@ export class NestComponent implements OnInit {
   }
 
   runNestIfThenElse(operation: Operation){
+    console.log(operation)
     let inputs = []
     let outputs = []
     operation.operationParameters.forEach(parameter=>{
@@ -285,8 +287,8 @@ export class NestComponent implements OnInit {
     })
 
     return new Promise<boolean>(resolve=>{
-      this.nestService.getHttp( "tableData?name="+ tableName).subscribe(res=>{
-        this.externalTableData = res[0].data
+      this.nestService.getHttp(tableName).subscribe(res=>{
+        this.externalTableData = res
         this.externalTablePopupVisible = true;
         this.externalTableSubscription = this.externalTableSubject.subscribe(sub=>{
           if(sub){
@@ -372,7 +374,7 @@ export class NestComponent implements OnInit {
   }
 
   saveTableForm(){
-    this.nestService.post(`tableData?name=tabelaDodatkowa`,this.prepareSaveFormData()).subscribe(res=>{
+    this.nestService.post(`tabelaDodatkowa`,this.prepareSaveFormData()).subscribe(res=>{
       // console.log(res)
       if(res){
         this.externalTableFormPopupVisible = false;
@@ -444,6 +446,9 @@ export class NestComponent implements OnInit {
   }
 
   findInGlobals(property: string){
-    return this.nestParameters[property] || 'value not found';
+    if(this.nestParameters[property] !== undefined){
+      return this.nestParameters[property]
+    }
+    else return 'value not found';
   }
 }
