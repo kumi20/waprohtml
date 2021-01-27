@@ -4,7 +4,6 @@ import { ArtykulyComponent } from './artykuly/artykuly.component';
 import { DokumentyMagazynoweComponent } from './dokumenty-magazynowe/dokumenty-magazynowe.component';
 
 import { LogOnComponent } from './log-on/log-on.component';
-import { Test1Component } from './test1/test1.component';
 
 const routes: Routes = [
   { path: "", component: LogOnComponent },
