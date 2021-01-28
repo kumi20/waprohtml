@@ -2,6 +2,7 @@ import { Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewCont
 
 @Component({
   selector: 'app-dynamic-component',
+  entryComponents: [],
   templateUrl: './dynamic-component.component.html',
   styleUrls: ['./dynamic-component.component.scss']
 })

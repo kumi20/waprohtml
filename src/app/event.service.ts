@@ -9,7 +9,6 @@ import * as CryptoJS from 'crypto-js';
 
 import { Router } from '@angular/router';
 import notify from 'devextreme/ui/notify';
-import { DH_CHECK_P_NOT_SAFE_PRIME } from "constants";
 
 const SALT = "%CxR$%j$i9^2:9_0*2Q!230xs.+";
 
